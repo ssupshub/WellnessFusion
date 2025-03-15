@@ -33,3 +33,5 @@ npm run dev
 
 ---
 
+**note:**
+If it not wokring use 18 version of node and npm
