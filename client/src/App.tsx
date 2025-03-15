@@ -38,52 +38,65 @@ import BodyLotionProducts from "./pages/body/lotions";
 import WellnessTeaProducts from "./pages/wellness/teas";
 import WellnessSupplementProducts from "./pages/wellness/supplements";
 
+// Import the admin dashboard
+import AdminDashboard from "./pages/admin";
+
 function Router() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
-      <main className="flex-grow">
-        <Switch>
-          <Route path="/" component={Home} />
-          
-          {/* Main category pages */}
-          <Route path="/face" component={Face} />
-          <Route path="/hair" component={Hair} />
-          <Route path="/body" component={Body} />
-          <Route path="/wellness" component={Wellness} />
-          <Route path="/combos" component={Combos} />
-          
-          {/* Face subcategory routes */}
-          <Route path="/face/cleansers" component={FaceCleanserProducts} />
-          <Route path="/face/moisturizers" component={FaceMoisturizerProducts} />
-          <Route path="/face/serums" component={FaceSerumProducts} />
-          <Route path="/face/masks" component={FaceMaskProducts} />
-          <Route path="/face/oils" component={FacialOilProducts} />
-          
-          {/* Hair subcategory routes */}
-          <Route path="/hair/shampoos" component={HairShampooProducts} />
-          <Route path="/hair/conditioners" component={HairConditionerProducts} />
-          <Route path="/hair/oils" component={HairOilProducts} />
-          <Route path="/hair/treatments" component={HairTreatmentProducts} />
-          
-          {/* Body subcategory routes */}
-          <Route path="/body/oils" component={BodyOilProducts} />
-          <Route path="/body/scrubs" component={BodyScrubProducts} />
-          <Route path="/body/lotions" component={BodyLotionProducts} />
-          
-          {/* Wellness subcategory routes */}
-          <Route path="/wellness/teas" component={WellnessTeaProducts} />
-          <Route path="/wellness/supplements" component={WellnessSupplementProducts} />
-          
-          {/* Other pages */}
-          <Route path="/consultation" component={Consultation} />
-          <Route path="/know-your-dosha" component={KnowYourDosha} />
-          <Route path="/product/:id" component={ProductDetail} />
-          <Route path="/cart" component={Cart} />
-          <Route component={NotFound} />
-        </Switch>
-      </main>
-      <Footer />
+      <Switch>
+        {/* Admin routes - no header/footer */}
+        <Route path="/admin">
+          <AdminDashboard />
+        </Route>
+        
+        {/* Customer-facing routes with header/footer */}
+        <Route>
+          <Header />
+          <main className="flex-grow">
+            <Switch>
+              <Route path="/" component={Home} />
+              
+              {/* Main category pages */}
+              <Route path="/face" component={Face} />
+              <Route path="/hair" component={Hair} />
+              <Route path="/body" component={Body} />
+              <Route path="/wellness" component={Wellness} />
+              <Route path="/combos" component={Combos} />
+              
+              {/* Face subcategory routes */}
+              <Route path="/face/cleansers" component={FaceCleanserProducts} />
+              <Route path="/face/moisturizers" component={FaceMoisturizerProducts} />
+              <Route path="/face/serums" component={FaceSerumProducts} />
+              <Route path="/face/masks" component={FaceMaskProducts} />
+              <Route path="/face/oils" component={FacialOilProducts} />
+              
+              {/* Hair subcategory routes */}
+              <Route path="/hair/shampoos" component={HairShampooProducts} />
+              <Route path="/hair/conditioners" component={HairConditionerProducts} />
+              <Route path="/hair/oils" component={HairOilProducts} />
+              <Route path="/hair/treatments" component={HairTreatmentProducts} />
+              
+              {/* Body subcategory routes */}
+              <Route path="/body/oils" component={BodyOilProducts} />
+              <Route path="/body/scrubs" component={BodyScrubProducts} />
+              <Route path="/body/lotions" component={BodyLotionProducts} />
+              
+              {/* Wellness subcategory routes */}
+              <Route path="/wellness/teas" component={WellnessTeaProducts} />
+              <Route path="/wellness/supplements" component={WellnessSupplementProducts} />
+              
+              {/* Other pages */}
+              <Route path="/consultation" component={Consultation} />
+              <Route path="/know-your-dosha" component={KnowYourDosha} />
+              <Route path="/product/:id" component={ProductDetail} />
+              <Route path="/cart" component={Cart} />
+              <Route component={NotFound} />
+            </Switch>
+          </main>
+          <Footer />
+        </Route>
+      </Switch>
     </div>
   );
 }
