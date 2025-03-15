@@ -76,7 +76,7 @@ const navigation = [
           { name: "Shampoos", href: "/hair/shampoos" },
           { name: "Conditioners", href: "/hair/conditioners" },
           { name: "Hair Oils", href: "/hair/oils" },
-          { name: "Hair Masks", href: "/hair/masks" },
+          { name: "Hair Treatments", href: "/hair/treatments" },
           { name: "Scalp Treatments", href: "/hair/scalp-treatments" }
         ]
       },
@@ -109,7 +109,7 @@ const navigation = [
         items: [
           { name: "Body Wash", href: "/body/wash" },
           { name: "Body Oils", href: "/body/oils" },
-          { name: "Body Butters", href: "/body/butters" },
+          { name: "Body Lotions", href: "/body/lotions" },
           { name: "Body Scrubs", href: "/body/scrubs" },
           { name: "Hand & Foot Care", href: "/body/hand-foot" }
         ]
