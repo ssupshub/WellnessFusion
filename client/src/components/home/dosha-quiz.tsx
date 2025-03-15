@@ -115,16 +115,16 @@ export default function DoshaQuiz() {
           </div>
           
           {/* Dosha Quiz Preview */}
-          <Card className="bg-secondary rounded-3xl p-8 shadow-xl">
-            <h3 className="text-xl font-medium mb-6">Quick Dosha Assessment</h3>
+          <Card className="bg-[#F8F0EE] rounded-3xl p-8 shadow-xl">
+            <h3 className="text-xl font-medium mb-6 text-[#5D1B12]">Quick Dosha Assessment</h3>
             
             {isLoading ? (
               <div className="space-y-4 animate-pulse">
-                <div className="h-6 bg-gray-200 rounded w-3/4"></div>
+                <div className="h-6 bg-[#CFB3AD]/50 rounded w-3/4"></div>
                 <div className="space-y-2">
-                  <div className="h-12 bg-gray-200 rounded"></div>
-                  <div className="h-12 bg-gray-200 rounded"></div>
-                  <div className="h-12 bg-gray-200 rounded"></div>
+                  <div className="h-12 bg-[#CFB3AD]/50 rounded"></div>
+                  <div className="h-12 bg-[#CFB3AD]/50 rounded"></div>
+                  <div className="h-12 bg-[#CFB3AD]/50 rounded"></div>
                 </div>
               </div>
             ) : questions && questions.length > 0 ? (
@@ -135,42 +135,42 @@ export default function DoshaQuiz() {
                 transition={{ duration: 0.3 }}
               >
                 <CardContent className="p-0">
-                  <p className="font-medium mb-3">{questions[activeQuestion].question}</p>
+                  <p className="font-medium mb-3 text-[#5D1B12]">{questions[activeQuestion].question}</p>
                   <RadioGroup 
                     value={answers[questions[activeQuestion].id]}
                     className="space-y-3"
                     onValueChange={(value) => handleAnswer(questions[activeQuestion].id, value)}
                   >
-                    <div className="flex items-center p-3 bg-white rounded-xl cursor-pointer border border-transparent hover:border-gray-200 transition-colors">
-                      <RadioGroupItem value="vata" id="vata" className="text-[#34c759]" />
-                      <Label htmlFor="vata" className="ml-3 cursor-pointer flex-1">
+                    <div className="flex items-center p-3 bg-white rounded-xl cursor-pointer border border-transparent hover:border-[#B28882] transition-colors">
+                      <RadioGroupItem value="vata" id="vata" className="text-[#833712]" />
+                      <Label htmlFor="vata" className="ml-3 cursor-pointer flex-1 text-[#702912]">
                         {questions[activeQuestion].vataOption}
                       </Label>
                     </div>
                     
-                    <div className="flex items-center p-3 bg-white rounded-xl cursor-pointer border border-transparent hover:border-gray-200 transition-colors">
-                      <RadioGroupItem value="pitta" id="pitta" className="text-[#34c759]" />
-                      <Label htmlFor="pitta" className="ml-3 cursor-pointer flex-1">
+                    <div className="flex items-center p-3 bg-white rounded-xl cursor-pointer border border-transparent hover:border-[#B28882] transition-colors">
+                      <RadioGroupItem value="pitta" id="pitta" className="text-[#833712]" />
+                      <Label htmlFor="pitta" className="ml-3 cursor-pointer flex-1 text-[#702912]">
                         {questions[activeQuestion].pittaOption}
                       </Label>
                     </div>
                     
-                    <div className="flex items-center p-3 bg-white rounded-xl cursor-pointer border border-transparent hover:border-gray-200 transition-colors">
-                      <RadioGroupItem value="kapha" id="kapha" className="text-[#34c759]" />
-                      <Label htmlFor="kapha" className="ml-3 cursor-pointer flex-1">
+                    <div className="flex items-center p-3 bg-white rounded-xl cursor-pointer border border-transparent hover:border-[#B28882] transition-colors">
+                      <RadioGroupItem value="kapha" id="kapha" className="text-[#833712]" />
+                      <Label htmlFor="kapha" className="ml-3 cursor-pointer flex-1 text-[#702912]">
                         {questions[activeQuestion].kaphaOption}
                       </Label>
                     </div>
                   </RadioGroup>
                   
                   <div className="text-center mt-8">
-                    <p className="text-sm text-gray-500 mb-4">
+                    <p className="text-sm text-[#702912]/70 mb-4">
                       Question {activeQuestion + 1} of {questions.length}
                     </p>
                     <Button 
                       onClick={handleContinue}
                       disabled={!answers[questions[activeQuestion].id]}
-                      className="bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors h-auto"
+                      className="bg-[#5D1B12] text-white px-8 py-3 rounded-full font-medium hover:bg-[#833712] transition-colors h-auto"
                     >
                       {activeQuestion < questions.length - 1 ? "Continue" : "Get Results"}
                     </Button>
@@ -178,7 +178,7 @@ export default function DoshaQuiz() {
                 </CardContent>
               </motion.div>
             ) : (
-              <p className="text-center text-gray-500">No quiz questions available</p>
+              <p className="text-center text-[#702912]/70">No quiz questions available</p>
             )}
           </Card>
         </div>

@@ -65,14 +65,14 @@ export default function FeaturedProducts() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {[...Array(4)].map((_, i) => (
               <Card key={i} className="bg-white rounded-2xl overflow-hidden shadow-md">
-                <div className="h-60 bg-gray-200 animate-pulse"></div>
+                <div className="h-60 bg-[#CFB3AD]/30 animate-pulse"></div>
                 <CardContent className="p-5">
-                  <div className="h-4 bg-gray-200 rounded animate-pulse mb-2"></div>
-                  <div className="h-5 bg-gray-200 rounded animate-pulse mb-4"></div>
-                  <div className="h-4 bg-gray-200 rounded animate-pulse w-3/4 mb-4"></div>
+                  <div className="h-4 bg-[#CFB3AD]/30 rounded animate-pulse mb-2"></div>
+                  <div className="h-5 bg-[#CFB3AD]/30 rounded animate-pulse mb-4"></div>
+                  <div className="h-4 bg-[#CFB3AD]/30 rounded animate-pulse w-3/4 mb-4"></div>
                   <div className="flex justify-between items-center">
-                    <div className="h-4 bg-gray-200 rounded animate-pulse w-20"></div>
-                    <div className="h-8 w-8 bg-gray-200 rounded-full animate-pulse"></div>
+                    <div className="h-4 bg-[#CFB3AD]/30 rounded animate-pulse w-20"></div>
+                    <div className="h-8 w-8 bg-[#CFB3AD]/30 rounded-full animate-pulse"></div>
                   </div>
                 </CardContent>
               </Card>
@@ -80,7 +80,7 @@ export default function FeaturedProducts() {
           </div>
         ) : error ? (
           <div className="text-center py-8">
-            <p className="text-red-500">Failed to load products. Please try again later.</p>
+            <p className="text-[#5D1B12]">Failed to load products. Please try again later.</p>
           </div>
         ) : (
           <motion.div 
