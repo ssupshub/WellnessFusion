@@ -94,7 +94,7 @@ export class MemStorage implements IStorage {
         price: 34,
         category: "face_cleanser",
         doshaType: "pitta",
-        imageUrl: "https://unsplash.com/photos/curology-softube-X1sIr53DhzA",
+        imageUrl: "https://images.unsplash.com/photo-1556227702-d1e4e7b5c232",
         inStock: true,
         isBestseller: true,
         isNew: false,
@@ -108,7 +108,7 @@ export class MemStorage implements IStorage {
         category: "face_mask",
         doshaType: "pitta",
         imageUrl:
-          "https://unsplash.com/photos/a-woman-with-a-white-towel-on-her-head-6meOsLju8wI",
+          "https://images.unsplash.com/photo-1570554886121-44a0d98d7065",
         inStock: true,
         isBestseller: false,
         isNew: true,
@@ -483,7 +483,7 @@ export class MemStorage implements IStorage {
         title: "Ayurvedic Physician",
         description:
           "Specializes in women's health, skin conditions, and stress management through Ayurvedic principles.",
-        imageUrl: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2",
+        imageUrl: "https://images.unsplash.com/photo-1537368910025-700350fe46c7",
         price: 120,
         duration: 60,
       },
