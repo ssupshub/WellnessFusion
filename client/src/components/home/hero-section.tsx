@@ -15,19 +15,15 @@ export default function HeroSection() {
               Modern wellness, <br />
               <span className="font-medium">Ancient wisdom</span>
             </h1>
-            <p className="text-lg text-gray-600 mb-8 max-w-lg">
+            <p className="text-lg text-[#702912] mb-8 max-w-lg">
               Experience the transformative power of Ayurveda combined with cutting-edge technology for a personalized wellness journey.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/know-your-dosha">
-                <a className="bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors">
-                  Discover Your Dosha
-                </a>
+              <Link href="/know-your-dosha" className="bg-[#5D1B12] text-white px-8 py-3 rounded-full font-medium hover:bg-[#702912] transition-colors inline-block">
+                Discover Your Dosha
               </Link>
-              <Link href="/face">
-                <a className="bg-secondary text-black px-8 py-3 rounded-full font-medium hover:bg-gray-200 transition-colors">
-                  Shop Products
-                </a>
+              <Link href="/face" className="bg-[#CFB3AD] text-[#5D1B12] px-8 py-3 rounded-full font-medium hover:bg-[#B28882] hover:text-white transition-colors inline-block">
+                Shop Products
               </Link>
             </div>
           </motion.div>
@@ -43,8 +39,8 @@ export default function HeroSection() {
               alt="Ayurvedic products and herbs" 
               className="absolute inset-0 w-full h-full object-cover rounded-3xl shadow-xl"
             />
-            <div className="absolute bottom-0 left-0 w-full p-8 hero-gradient rounded-b-3xl text-white bg-gradient-to-t from-black/60 to-transparent">
-              <span className="text-sm font-medium bg-[#34c759] px-3 py-1 rounded-full">Featured</span>
+            <div className="absolute bottom-0 left-0 w-full p-8 hero-gradient rounded-b-3xl text-white bg-gradient-to-t from-[#5D1B12]/80 to-transparent">
+              <span className="text-sm font-medium bg-[#B28882] px-3 py-1 rounded-full">Featured</span>
               <h3 className="text-xl font-medium mt-2">Skin Harmony Collection</h3>
               <p className="text-sm opacity-90">Balance your dosha with our new skincare lineup</p>
             </div>
@@ -53,8 +49,8 @@ export default function HeroSection() {
       </div>
       
       {/* Background blobs */}
-      <div className="absolute -top-16 -right-16 w-64 h-64 bg-[#34c759]/10 rounded-full blur-3xl"></div>
-      <div className="absolute -bottom-24 -left-16 w-80 h-80 bg-[#5ac8fa]/10 rounded-full blur-3xl"></div>
+      <div className="absolute -top-16 -right-16 w-64 h-64 bg-[#B28882]/15 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-24 -left-16 w-80 h-80 bg-[#833712]/10 rounded-full blur-3xl"></div>
     </section>
   );
 }

@@ -38,22 +38,22 @@ export default function FeaturedProducts() {
   };
 
   return (
-    <section id="featured-products" className="py-16 bg-secondary">
+    <section id="featured-products" className="py-16 bg-[#F8F0EE]">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-12">
           <div>
-            <span className="text-sm font-semibold text-[#34c759] uppercase tracking-wider">Discover</span>
-            <h2 className="text-3xl md:text-4xl font-light mt-3">
+            <span className="text-sm font-semibold text-[#833712] uppercase tracking-wider">Discover</span>
+            <h2 className="text-3xl md:text-4xl font-light mt-3 text-[#5D1B12]">
               Bestselling <span className="font-medium">Products</span>
             </h2>
           </div>
           <div className="hidden md:flex gap-2">
-            <Button variant="outline" size="icon" className="rounded-full">
+            <Button variant="outline" size="icon" className="rounded-full border-[#B28882] text-[#5D1B12] hover:bg-[#CFB3AD]/10 hover:text-[#833712]">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 19l-7-7 7-7" />
               </svg>
             </Button>
-            <Button variant="outline" size="icon" className="rounded-full">
+            <Button variant="outline" size="icon" className="rounded-full border-[#B28882] text-[#5D1B12] hover:bg-[#CFB3AD]/10 hover:text-[#833712]">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 5l7 7-7 7" />
               </svg>
@@ -98,12 +98,12 @@ export default function FeaturedProducts() {
                     className="w-full h-60 object-cover"
                   />
                   {product.isBestseller && (
-                    <span className="absolute top-3 left-3 bg-[#34c759] text-white text-xs px-2 py-1 rounded-full">
+                    <span className="absolute top-3 left-3 bg-[#833712] text-white text-xs px-2 py-1 rounded-full">
                       Bestseller
                     </span>
                   )}
                   {product.isNew && (
-                    <span className="absolute top-3 left-3 bg-[#5ac8fa] text-white text-xs px-2 py-1 rounded-full">
+                    <span className="absolute top-3 left-3 bg-[#B28882] text-white text-xs px-2 py-1 rounded-full">
                       New
                     </span>
                   )}
@@ -111,17 +111,17 @@ export default function FeaturedProducts() {
                 <CardContent className="p-5">
                   <div className="flex justify-between items-start mb-2">
                     <div>
-                      <span className="text-sm text-gray-500">{product.category.charAt(0).toUpperCase() + product.category.slice(1)}</span>
-                      <h3 className="font-medium">{product.name}</h3>
+                      <span className="text-sm text-[#833712]">{product.category.charAt(0).toUpperCase() + product.category.slice(1)}</span>
+                      <h3 className="font-medium text-[#5D1B12]">{product.name}</h3>
                     </div>
-                    <span className="font-semibold">${product.price}</span>
+                    <span className="font-semibold text-[#702912]">${product.price}</span>
                   </div>
-                  <p className="text-sm text-gray-600 mb-4">{product.description}</p>
+                  <p className="text-sm text-[#702912]/80 mb-4">{product.description}</p>
                   <div className="flex justify-between items-center">
                     <Rating rating={product.rating} />
                     <Button 
                       size="icon" 
-                      className="bg-black text-white rounded-full hover:bg-gray-800"
+                      className="bg-[#5D1B12] text-white rounded-full hover:bg-[#833712]"
                       onClick={() => handleAddToCart(product.id)}
                     >
                       <Plus className="h-5 w-5" />
