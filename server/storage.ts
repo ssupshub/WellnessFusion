@@ -11,6 +11,7 @@ export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
+  getUserByEmail(email: string): Promise<User | null>; // Added getUserByEmail
 
   // Product methods
   getAllProducts(): Promise<Product[]>;
@@ -303,6 +304,17 @@ export class MemStorage implements IStorage {
     this.users.set(id, user);
     return user;
   }
+
+  async getUserByEmail(email: string): Promise<User | null> {
+    // This is a mock implementation. In production, use a real database
+    for (const user of this.users.values()) {
+      if (user.email === email) {
+        return user;
+      }
+    }
+    return null;
+  }
+
 
   // Product methods
   async getAllProducts(): Promise<Product[]> {

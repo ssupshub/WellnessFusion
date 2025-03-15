@@ -1,40 +1,25 @@
 import { useLocation, Link } from "wouter";
 import { useState, useEffect } from "react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { 
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle
-} from "@/components/ui/navigation-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
-  Search,
-  User,
-  ShoppingBag,
-  Menu,
-  Leaf,
-  Sparkles,
-  Droplets,
-  Flame,
-  Wind,
-  Heart,
-  Users,
-  CalendarDays,
-  Flower
-} from "lucide-react";
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { ShoppingCart, User, LogOut, Sparkles, Droplets, Flame, Leaf, Heart, Users, Wind } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/hooks/use-auth";
 
 const navigation = [
-  { 
-    name: "Face", 
+  {
+    name: "Face",
     href: "/face",
     icon: <Sparkles className="w-4 h-4 mr-2" />,
     megamenu: [
-      { 
+      {
         title: "Face Care Collections",
         items: [
           { name: "Cleansers & Face Wash", href: "/face/cleansers" },
@@ -42,8 +27,8 @@ const navigation = [
           { name: "Serums & Oils", href: "/face/serums" },
           { name: "Face Masks", href: "/face/masks" },
           { name: "Eye Care", href: "/face/eye-care" },
-          { name: "Lip Care", href: "/face/lip-care" }
-        ]
+          { name: "Lip Care", href: "/face/lip-care" },
+        ],
       },
       {
         title: "Dosha-Specific",
@@ -51,8 +36,8 @@ const navigation = [
           { name: "For Vata Skin", href: "/face/vata" },
           { name: "For Pitta Skin", href: "/face/pitta" },
           { name: "For Kapha Skin", href: "/face/kapha" },
-          { name: "For Combination", href: "/face/combination" }
-        ]
+          { name: "For Combination", href: "/face/combination" },
+        ],
       },
       {
         title: "Concerns",
@@ -60,13 +45,13 @@ const navigation = [
           { name: "Anti-Aging", href: "/face/anti-aging" },
           { name: "Acne & Blemishes", href: "/face/acne-blemishes" },
           { name: "Hyperpigmentation", href: "/face/hyperpigmentation" },
-          { name: "Sensitive Skin", href: "/face/sensitive-skin" }
-        ]
-      }
-    ]
+          { name: "Sensitive Skin", href: "/face/sensitive-skin" },
+        ],
+      },
+    ],
   },
-  { 
-    name: "Hair", 
+  {
+    name: "Hair",
     href: "/hair",
     icon: <Droplets className="w-4 h-4 mr-2" />,
     megamenu: [
@@ -77,16 +62,16 @@ const navigation = [
           { name: "Conditioners", href: "/hair/conditioners" },
           { name: "Hair Oils", href: "/hair/oils" },
           { name: "Hair Treatments", href: "/hair/treatments" },
-          { name: "Scalp Treatments", href: "/hair/scalp-treatments" }
-        ]
+          { name: "Scalp Treatments", href: "/hair/scalp-treatments" },
+        ],
       },
       {
         title: "Dosha-Specific",
         items: [
           { name: "For Vata Hair", href: "/hair/vata" },
           { name: "For Pitta Hair", href: "/hair/pitta" },
-          { name: "For Kapha Hair", href: "/hair/kapha" }
-        ]
+          { name: "For Kapha Hair", href: "/hair/kapha" },
+        ],
       },
       {
         title: "Concerns",
@@ -94,13 +79,13 @@ const navigation = [
           { name: "Hair Fall", href: "/hair/hair-fall" },
           { name: "Dandruff", href: "/hair/dandruff" },
           { name: "Dry & Damaged", href: "/hair/dry-damaged" },
-          { name: "Premature Graying", href: "/hair/premature-graying" }
-        ]
-      }
-    ]
+          { name: "Premature Graying", href: "/hair/premature-graying" },
+        ],
+      },
+    ],
   },
-  { 
-    name: "Body", 
+  {
+    name: "Body",
     href: "/body",
     icon: <Flame className="w-4 h-4 mr-2" />,
     megamenu: [
@@ -111,29 +96,29 @@ const navigation = [
           { name: "Body Oils", href: "/body/oils" },
           { name: "Body Lotions", href: "/body/lotions" },
           { name: "Body Scrubs", href: "/body/scrubs" },
-          { name: "Hand & Foot Care", href: "/body/hand-foot" }
-        ]
+          { name: "Hand & Foot Care", href: "/body/hand-foot" },
+        ],
       },
       {
         title: "Dosha-Specific",
         items: [
           { name: "For Vata Body", href: "/body/vata" },
           { name: "For Pitta Body", href: "/body/pitta" },
-          { name: "For Kapha Body", href: "/body/kapha" }
-        ]
+          { name: "For Kapha Body", href: "/body/kapha" },
+        ],
       },
       {
         title: "Specialty Products",
         items: [
           { name: "Massage Oils", href: "/body/massage-oils" },
           { name: "Ubtan & Clay Packs", href: "/body/ubtan-clay" },
-          { name: "Bath Salts", href: "/body/bath-salts" }
-        ]
-      }
-    ]
+          { name: "Bath Salts", href: "/body/bath-salts" },
+        ],
+      },
+    ],
   },
-  { 
-    name: "Wellness", 
+  {
+    name: "Wellness",
     href: "/wellness",
     icon: <Leaf className="w-4 h-4 mr-2" />,
     megamenu: [
@@ -143,8 +128,8 @@ const navigation = [
           { name: "Herbal Supplements", href: "/wellness/supplements" },
           { name: "Teas & Infusions", href: "/wellness/teas" },
           { name: "Digestive Health", href: "/wellness/digestive-health" },
-          { name: "Immunity Boosters", href: "/wellness/immunity" }
-        ]
+          { name: "Immunity Boosters", href: "/wellness/immunity" },
+        ],
       },
       {
         title: "Dosha Balance",
@@ -152,8 +137,8 @@ const navigation = [
           { name: "Vata Balance", href: "/wellness/vata" },
           { name: "Pitta Balance", href: "/wellness/pitta" },
           { name: "Kapha Balance", href: "/wellness/kapha" },
-          { name: "Tri-Dosha", href: "/wellness/tri-dosha" }
-        ]
+          { name: "Tri-Dosha", href: "/wellness/tri-dosha" },
+        ],
       },
       {
         title: "Mind & Spirit",
@@ -161,184 +146,87 @@ const navigation = [
           { name: "Meditation Aids", href: "/wellness/meditation" },
           { name: "Aromatherapy", href: "/wellness/aromatherapy" },
           { name: "Stress Relief", href: "/wellness/stress-relief" },
-          { name: "Sleep Support", href: "/wellness/sleep" }
-        ]
-      }
-    ]
+          { name: "Sleep Support", href: "/wellness/sleep" },
+        ],
+      },
+    ],
   },
-  { 
-    name: "Combos", 
-    href: "/combos",
-    icon: <Heart className="w-4 h-4 mr-2" />
-  },
-  { 
-    name: "Consultation", 
+  { name: "Combos", href: "/combos", icon: <Heart className="w-4 h-4 mr-2" /> },
+  {
+    name: "Consultation",
     href: "/consultation",
-    icon: <Users className="w-4 h-4 mr-2" />
+    icon: <Users className="w-4 h-4 mr-2" />,
   },
-  { 
-    name: "Know your Dosha", 
+  {
+    name: "Know your Dosha",
     href: "/know-your-dosha",
-    icon: <Wind className="w-4 h-4 mr-2" />
+    icon: <Wind className="w-4 h-4 mr-2" />,
   },
 ];
 
 export default function Header() {
-  const [location] = useLocation();
-  const [scrolled, setScrolled] = useState(false);
-  const [cartCount, setCartCount] = useState(3); // This would come from a cart context in a real app
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 100);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const { user, logout } = useAuth();
 
   return (
-    <header className={cn(
-      "fixed w-full z-50 transition-all duration-300 backdrop-blur bg-white/80 border-b border-[#CFB3AD]/30",
-      scrolled && "shadow-md"
-    )}>
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        {/* Logo */}
-        <Link href="/" className="flex items-center">
-          <span className="text-xl font-semibold tracking-tight text-[#5D1B12]">Ayurveda</span>
+    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <div className="container flex h-16 items-center justify-between">
+        <Link href="/">
+          <span className="text-xl font-bold text-[#5D1B12]">Ayurveda</span>
         </Link>
-        
-        {/* Desktop Navigation */}
-        <NavigationMenu className="hidden md:flex">
-          <NavigationMenuList>
-            {navigation.map((item) => (
-              <NavigationMenuItem key={item.name}>
-                {item.megamenu ? (
-                  <>
-                    <NavigationMenuTrigger className={cn(
-                      "text-[#5D1B12] hover:text-[#833712] transition-colors",
-                      location === item.href ? "text-[#702912] font-semibold" : ""
-                    )}>
-                      <div className="flex items-center">
-                        {item.icon}
-                        {item.name}
-                      </div>
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="grid grid-cols-3 gap-6 p-6 w-[800px]">
-                        {item.megamenu.map((section, idx) => (
-                          <div key={idx} className="space-y-3">
-                            <h4 className="font-medium text-[#5D1B12] border-b border-[#CFB3AD]/30 pb-2">{section.title}</h4>
-                            <ul className="space-y-2">
-                              {section.items.map((subitem, subidx) => (
-                                <li key={subidx}>
-                                  <NavigationMenuLink asChild>
-                                    <Link
-                                      href={subitem.href}
-                                      className="block py-1 text-[#702912] hover:text-[#833712] transition-colors text-sm hover:underline"
-                                    >
-                                      {subitem.name}
-                                    </Link>
-                                  </NavigationMenuLink>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
-                      </div>
-                    </NavigationMenuContent>
-                  </>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      "flex items-center py-2 px-3 text-sm rounded-md text-[#5D1B12] hover:text-[#833712] transition-colors hover:bg-[#CFB3AD]/10",
-                      location === item.href ? "text-[#702912] font-semibold bg-[#CFB3AD]/10" : ""
-                    )}
-                  >
-                    {item.icon}
-                    {item.name}
-                  </Link>
-                )}
-              </NavigationMenuItem>
-            ))}
-          </NavigationMenuList>
-        </NavigationMenu>
-        
-        {/* Right Icons */}
-        <div className="flex items-center space-x-6">
-          <Button variant="ghost" size="icon" aria-label="Search" className="text-[#5D1B12] hover:text-[#833712] hover:bg-[#CFB3AD]/10">
-            <Search className="h-5 w-5" />
-          </Button>
-          
-          <Button variant="ghost" size="icon" aria-label="Account" className="text-[#5D1B12] hover:text-[#833712] hover:bg-[#CFB3AD]/10">
-            <User className="h-5 w-5" />
-          </Button>
-          
-          <Button variant="ghost" size="icon" aria-label="Cart" className="relative text-[#5D1B12] hover:text-[#833712] hover:bg-[#CFB3AD]/10" asChild>
-            <Link href="/cart">
-              <ShoppingBag className="h-5 w-5" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-[#B28882] text-white w-4 h-4 rounded-full text-xs flex items-center justify-center">
-                  {cartCount}
-                </span>
-              )}
-            </Link>
-          </Button>
-          
-          {/* Mobile Menu Button */}
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden text-[#5D1B12] hover:text-[#833712] hover:bg-[#CFB3AD]/10" aria-label="Menu">
-                <Menu className="h-6 w-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="border-l-[#CFB3AD]/30 overflow-y-auto">
-              <div className="text-xl font-semibold tracking-tight text-[#5D1B12] py-4 flex items-center gap-2">
-                <Leaf className="h-5 w-5 text-[#833712]" />Ayurveda
-              </div>
-              <nav className="flex flex-col mt-6">
-                {navigation.map((item) => (
-                  <div key={item.name} className="mb-4">
-                    <Link
-                      href={item.href}
-                      className={cn(
-                        "flex items-center gap-2 py-2 px-1 transition-colors rounded-md",
-                        location === item.href ? "text-[#702912] font-medium bg-[#CFB3AD]/10" : "text-[#5D1B12]"
-                      )}
-                    >
-                      {item.icon}
-                      {item.name}
-                    </Link>
-                    
-                    {item.megamenu && (
-                      <div className="pl-6 mt-2 border-l-2 border-[#CFB3AD]/30">
-                        {item.megamenu.map((section, idx) => (
-                          <div key={idx} className="mb-3">
-                            <h5 className="text-sm font-medium text-[#833712] mb-1">{section.title}</h5>
-                            <ul className="space-y-1">
-                              {section.items.map((subitem, subidx) => (
-                                <li key={subidx}>
-                                  <Link
-                                    href={subitem.href}
-                                    className="block text-sm py-1 text-[#702912]/80 hover:text-[#833712]"
-                                  >
-                                    {subitem.name}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
-                      </div>
-                    )}
+
+        <nav className="hidden md:flex items-center gap-6">
+          <Link href="/shop">
+            <span className="text-sm font-medium hover:text-[#833712] transition-colors">Shop</span>
+          </Link>
+          <Link href="/about">
+            <span className="text-sm font-medium hover:text-[#833712] transition-colors">About</span>
+          </Link>
+          <Link href="/consultation">
+            <span className="text-sm font-medium hover:text-[#833712] transition-colors">Consultation</span>
+          </Link>
+          <Link href="/dosha-quiz">
+            <span className="text-sm font-medium hover:text-[#833712] transition-colors">Dosha Quiz</span>
+          </Link>
+        </nav>
+
+        <div className="flex items-center gap-4">
+          <Link href="/cart">
+            <Button variant="ghost" size="icon">
+              <ShoppingCart className="h-5 w-5" />
+            </Button>
+          </Link>
+
+          {user ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+                  <Avatar className="h-8 w-8">
+                    <AvatarImage src={user.image} alt={user.name} />
+                    <AvatarFallback>{user.name[0]}</AvatarFallback>
+                  </Avatar>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56" align="end" forceMount>
+                <div className="flex items-center justify-start gap-2 p-2">
+                  <div className="flex flex-col space-y-1 leading-none">
+                    <p className="font-medium">{user.name}</p>
+                    <p className="text-sm text-muted-foreground">{user.email}</p>
                   </div>
-                ))}
-              </nav>
-            </SheetContent>
-          </Sheet>
+                </div>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={logout}>
+                  <LogOut className="mr-2 h-4 w-4" />
+                  <span>Log out</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <Link href="/login">
+              <Button variant="ghost" size="icon">
+                <User className="h-5 w-5" />
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
     </header>
