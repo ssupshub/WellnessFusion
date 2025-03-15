@@ -11,7 +11,7 @@ export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
-  
+
   // Product methods
   getAllProducts(): Promise<Product[]>;
   getProductById(id: number): Promise<Product | undefined>;
@@ -20,19 +20,19 @@ export interface IStorage {
   getBestsellerProducts(): Promise<Product[]>;
   getNewProducts(): Promise<Product[]>;
   createProduct(product: InsertProduct): Promise<Product>;
-  
+
   // Cart methods
   getCartItems(userId: number): Promise<CartItem[]>;
   getCartItemWithDetails(userId: number): Promise<(CartItem & { product: Product })[]>;
   addToCart(cartItem: InsertCartItem): Promise<CartItem>;
   updateCartItem(id: number, quantity: number): Promise<CartItem | undefined>;
   removeFromCart(id: number): Promise<boolean>;
-  
+
   // Practitioner methods
   getAllPractitioners(): Promise<Practitioner[]>;
   getPractitionerById(id: number): Promise<Practitioner | undefined>;
   createPractitioner(practitioner: InsertPractitioner): Promise<Practitioner>;
-  
+
   // Dosha quiz methods
   getAllDoshaQuizQuestions(): Promise<DoshaQuizQuestion[]>;
   getDoshaQuizQuestionById(id: number): Promise<DoshaQuizQuestion | undefined>;
@@ -45,7 +45,7 @@ export class MemStorage implements IStorage {
   private cartItems: Map<number, CartItem>;
   private practitioners: Map<number, Practitioner>;
   private doshaQuizQuestions: Map<number, DoshaQuizQuestion>;
-  
+
   private userId: number;
   private productId: number;
   private cartItemId: number;
@@ -58,13 +58,13 @@ export class MemStorage implements IStorage {
     this.cartItems = new Map();
     this.practitioners = new Map();
     this.doshaQuizQuestions = new Map();
-    
+
     this.userId = 1;
     this.productId = 1;
     this.cartItemId = 1;
     this.practitionerId = 1;
     this.questionId = 1;
-    
+
     // Initialize with sample data
     this.initializeData();
   }
@@ -72,58 +72,106 @@ export class MemStorage implements IStorage {
   private initializeData() {
     // Initial products
     const productData: InsertProduct[] = [
-      // Cleansers
-      {
-        name: "Invigorating Clay Cleanser",
-        description: "Energizing cleanser for Kapha skin with purifying clay and stimulating herbs.",
-        price: 38,
-        category: "face_cleanser",
-        doshaType: "kapha",
-        imageUrl: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b",
-        inStock: true,
-        isBestseller: false,
-        isNew: true,
-        rating: 5
-      },
-      // Moisturizers
-      {
-        name: "Lightweight Gel Moisturizer",
-        description: "Oil-free gel moisturizer perfect for Kapha skin types. Hydrates without heaviness.",
-        price: 45,
-        category: "face_moisturizer",
-        doshaType: "kapha",
-        imageUrl: "https://images.unsplash.com/photo-1617897903246-719242758050",
-        inStock: true,
-        isBestseller: false,
-        isNew: true,
-        rating: 4.5
-      },
-      // Serums
-      {
-        name: "Clarifying Herbal Serum",
-        description: "Potent blend of astringent herbs to balance and purify Kapha skin.",
-        price: 52,
-        category: "face_serum",
-        doshaType: "kapha",
-        imageUrl: "https://images.unsplash.com/photo-1594824476967-48c8b964273f",
-        inStock: true,
-        isBestseller: false,
-        isNew: true,
-        rating: 4.8
-      },
-      // Masks
-      {
-        name: "Detoxifying Clay Mask",
-        description: "Deep-cleansing mask with kaolin clay and warming spices for Kapha skin.",
-        price: 48,
-        category: "face_mask",
-        doshaType: "kapha",
-        imageUrl: "https://images.unsplash.com/photo-1608248544136-646675a43a38",
-        inStock: true,
-        isBestseller: true,
-        isNew: false,
-        rating: 4.9
-      },
+        // Cleansers
+        {
+          name: "Invigorating Clay Cleanser",
+          description: "Energizing cleanser for Kapha skin with purifying clay and stimulating herbs.",
+          price: 38,
+          category: "face_cleanser",
+          doshaType: "kapha",
+          imageUrl: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b",
+          inStock: true,
+          isBestseller: false,
+          isNew: true,
+          rating: 5
+        },
+        {
+          name: "Warming Spice Cleanser",
+          description: "Stimulating cleanser with ginger and black pepper to invigorate Kapha skin.",
+          price: 42,
+          category: "face_cleanser",
+          doshaType: "kapha",
+          imageUrl: "https://images.unsplash.com/photo-1616004667892-d348f7349d39",
+          inStock: true,
+          isBestseller: false,
+          isNew: true,
+          rating: 4.7
+        },
+        // Moisturizers
+        {
+          name: "Lightweight Gel Moisturizer",
+          description: "Oil-free gel moisturizer perfect for Kapha skin types. Hydrates without heaviness.",
+          price: 45,
+          category: "face_moisturizer",
+          doshaType: "kapha",
+          imageUrl: "https://images.unsplash.com/photo-1617897903246-719242758050",
+          inStock: true,
+          isBestseller: false,
+          isNew: true,
+          rating: 4.5
+        },
+        {
+          name: "Balancing Day Cream",
+          description: "Light, non-greasy day cream with tulsi and neem for Kapha balance.",
+          price: 48,
+          category: "face_moisturizer",
+          doshaType: "kapha",
+          imageUrl: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be",
+          inStock: true,
+          isBestseller: true,
+          isNew: false,
+          rating: 4.9
+        },
+        // Serums
+        {
+          name: "Clarifying Herbal Serum",
+          description: "Potent blend of astringent herbs to balance and purify Kapha skin.",
+          price: 52,
+          category: "face_serum",
+          doshaType: "kapha",
+          imageUrl: "https://images.unsplash.com/photo-1594824476967-48c8b964273f",
+          inStock: true,
+          isBestseller: false,
+          isNew: true,
+          rating: 4.8
+        },
+        {
+          name: "Brightening Complex Serum",
+          description: "Concentrated serum with triphala and vitamin C to brighten dull Kapha skin.",
+          price: 58,
+          category: "face_serum",
+          doshaType: "kapha",
+          imageUrl: "https://images.unsplash.com/photo-1620756236308-65c3ef5d25f3",
+          inStock: true,
+          isBestseller: true,
+          isNew: true,
+          rating: 4.9
+        },
+        // Masks
+        {
+          name: "Detoxifying Clay Mask",
+          description: "Deep-cleansing mask with kaolin clay and warming spices for Kapha skin.",
+          price: 48,
+          category: "face_mask",
+          doshaType: "kapha",
+          imageUrl: "https://images.unsplash.com/photo-1608248544136-646675a43a38",
+          inStock: true,
+          isBestseller: true,
+          isNew: false,
+          rating: 4.9
+        },
+        {
+          name: "Exfoliating Enzyme Mask",
+          description: "Enzymatic mask with papaya and pineapple to gently exfoliate Kapha skin.",
+          price: 46,
+          category: "face_mask",
+          doshaType: "kapha",
+          imageUrl: "https://images.unsplash.com/photo-1614159102346-8c5239719ae3",
+          inStock: true,
+          isBestseller: false,
+          isNew: true,
+          rating: 4.6
+        },
       {
         name: "Balancing Facial Cleansing Oil",
         description: "Perfect for Pitta dosha. Calms and purifies.",
@@ -173,12 +221,12 @@ export class MemStorage implements IStorage {
         rating: 5
       }
     ];
-    
+
     // Add more products for each category
     for (const product of productData) {
       this.createProduct(product);
     }
-    
+
     // Initial practitioners
     const practitionerData: InsertPractitioner[] = [
       {
@@ -206,11 +254,11 @@ export class MemStorage implements IStorage {
         duration: 60
       }
     ];
-    
+
     for (const practitioner of practitionerData) {
       this.createPractitioner(practitioner);
     }
-    
+
     // Initial dosha quiz questions
     const quizQuestionsData: InsertDoshaQuizQuestion[] = [
       {
@@ -232,7 +280,7 @@ export class MemStorage implements IStorage {
         kaphaOption: "Withdraw or become stubborn"
       }
     ];
-    
+
     for (const question of quizQuestionsData) {
       this.createDoshaQuizQuestion(question);
     }
@@ -255,54 +303,54 @@ export class MemStorage implements IStorage {
     this.users.set(id, user);
     return user;
   }
-  
+
   // Product methods
   async getAllProducts(): Promise<Product[]> {
     return Array.from(this.products.values());
   }
-  
+
   async getProductById(id: number): Promise<Product | undefined> {
     return this.products.get(id);
   }
-  
+
   async getProductsByCategory(category: string): Promise<Product[]> {
     return Array.from(this.products.values()).filter(
       (product) => product.category === category
     );
   }
-  
+
   async getProductsByDoshaType(doshaType: string): Promise<Product[]> {
     return Array.from(this.products.values()).filter(
       (product) => product.doshaType === doshaType || product.doshaType === 'tri-dosha'
     );
   }
-  
+
   async getBestsellerProducts(): Promise<Product[]> {
     return Array.from(this.products.values()).filter(
       (product) => product.isBestseller
     );
   }
-  
+
   async getNewProducts(): Promise<Product[]> {
     return Array.from(this.products.values()).filter(
       (product) => product.isNew
     );
   }
-  
+
   async createProduct(insertProduct: InsertProduct): Promise<Product> {
     const id = this.productId++;
     const product: Product = { ...insertProduct, id };
     this.products.set(id, product);
     return product;
   }
-  
+
   // Cart methods
   async getCartItems(userId: number): Promise<CartItem[]> {
     return Array.from(this.cartItems.values()).filter(
       (item) => item.userId === userId
     );
   }
-  
+
   async getCartItemWithDetails(userId: number): Promise<(CartItem & { product: Product })[]> {
     const items = await this.getCartItems(userId);
     return items.map(item => {
@@ -313,63 +361,63 @@ export class MemStorage implements IStorage {
       return { ...item, product };
     });
   }
-  
+
   async addToCart(insertCartItem: InsertCartItem): Promise<CartItem> {
     // Check if the item is already in the cart
     const existingItem = Array.from(this.cartItems.values()).find(
       (item) => item.userId === insertCartItem.userId && item.productId === insertCartItem.productId
     );
-    
+
     if (existingItem) {
       // Update quantity
       return this.updateCartItem(existingItem.id, existingItem.quantity + insertCartItem.quantity) as Promise<CartItem>;
     }
-    
+
     // Add new item
     const id = this.cartItemId++;
     const cartItem: CartItem = { ...insertCartItem, id };
     this.cartItems.set(id, cartItem);
     return cartItem;
   }
-  
+
   async updateCartItem(id: number, quantity: number): Promise<CartItem | undefined> {
     const cartItem = this.cartItems.get(id);
     if (!cartItem) return undefined;
-    
+
     const updatedItem = { ...cartItem, quantity };
     this.cartItems.set(id, updatedItem);
     return updatedItem;
   }
-  
+
   async removeFromCart(id: number): Promise<boolean> {
     return this.cartItems.delete(id);
   }
-  
+
   // Practitioner methods
   async getAllPractitioners(): Promise<Practitioner[]> {
     return Array.from(this.practitioners.values());
   }
-  
+
   async getPractitionerById(id: number): Promise<Practitioner | undefined> {
     return this.practitioners.get(id);
   }
-  
+
   async createPractitioner(insertPractitioner: InsertPractitioner): Promise<Practitioner> {
     const id = this.practitionerId++;
     const practitioner: Practitioner = { ...insertPractitioner, id };
     this.practitioners.set(id, practitioner);
     return practitioner;
   }
-  
+
   // Dosha quiz methods
   async getAllDoshaQuizQuestions(): Promise<DoshaQuizQuestion[]> {
     return Array.from(this.doshaQuizQuestions.values());
   }
-  
+
   async getDoshaQuizQuestionById(id: number): Promise<DoshaQuizQuestion | undefined> {
     return this.doshaQuizQuestions.get(id);
   }
-  
+
   async createDoshaQuizQuestion(insertQuestion: InsertDoshaQuizQuestion): Promise<DoshaQuizQuestion> {
     const id = this.questionId++;
     const question: DoshaQuizQuestion = { ...insertQuestion, id };
