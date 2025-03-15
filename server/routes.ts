@@ -145,6 +145,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
   
+  // Auth routes
+  app.post("/api/login", async (req, res) => {
+    try {
+      const { username, password } = req.body;
+      
+      const user = await storage.getUserByUsername(username);
+      if (!user || user.password !== password) {
+        return res.status(401).json({ message: "Invalid credentials" });
+      }
+      
+      // Don't send password back to client
+      const { password: _, ...userWithoutPassword } = user;
+      res.json(userWithoutPassword);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
   // Users
   app.post("/api/users", async (req, res) => {
     try {
