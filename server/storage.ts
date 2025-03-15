@@ -72,6 +72,58 @@ export class MemStorage implements IStorage {
   private initializeData() {
     // Initial products
     const productData: InsertProduct[] = [
+      // Cleansers
+      {
+        name: "Invigorating Clay Cleanser",
+        description: "Energizing cleanser for Kapha skin with purifying clay and stimulating herbs.",
+        price: 38,
+        category: "face_cleanser",
+        doshaType: "kapha",
+        imageUrl: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b",
+        inStock: true,
+        isBestseller: false,
+        isNew: true,
+        rating: 5
+      },
+      // Moisturizers
+      {
+        name: "Lightweight Gel Moisturizer",
+        description: "Oil-free gel moisturizer perfect for Kapha skin types. Hydrates without heaviness.",
+        price: 45,
+        category: "face_moisturizer",
+        doshaType: "kapha",
+        imageUrl: "https://images.unsplash.com/photo-1617897903246-719242758050",
+        inStock: true,
+        isBestseller: false,
+        isNew: true,
+        rating: 4.5
+      },
+      // Serums
+      {
+        name: "Clarifying Herbal Serum",
+        description: "Potent blend of astringent herbs to balance and purify Kapha skin.",
+        price: 52,
+        category: "face_serum",
+        doshaType: "kapha",
+        imageUrl: "https://images.unsplash.com/photo-1594824476967-48c8b964273f",
+        inStock: true,
+        isBestseller: false,
+        isNew: true,
+        rating: 4.8
+      },
+      // Masks
+      {
+        name: "Detoxifying Clay Mask",
+        description: "Deep-cleansing mask with kaolin clay and warming spices for Kapha skin.",
+        price: 48,
+        category: "face_mask",
+        doshaType: "kapha",
+        imageUrl: "https://images.unsplash.com/photo-1608248544136-646675a43a38",
+        inStock: true,
+        isBestseller: true,
+        isNew: false,
+        rating: 4.9
+      },
       {
         name: "Balancing Facial Cleansing Oil",
         description: "Perfect for Pitta dosha. Calms and purifies.",
