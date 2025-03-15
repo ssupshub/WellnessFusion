@@ -72,6 +72,202 @@ export class MemStorage implements IStorage {
   private initializeData() {
     // Initial products
     const productData: InsertProduct[] = [
+      // Face Products
+      {
+        name: "Rose Petal Cleanser",
+        description: "Gentle cleanser infused with rose petals and aloe vera for sensitive skin.",
+        price: 34,
+        category: "face_cleanser",
+        doshaType: "pitta",
+        imageUrl: "https://images.unsplash.com/photo-1556228578-8d89313c5489",
+        inStock: true,
+        isBestseller: true,
+        isNew: false,
+        rating: 4.8
+      },
+      {
+        name: "Turmeric Brightening Mask",
+        description: "Illuminating face mask with turmeric and saffron for radiant skin.",
+        price: 45,
+        category: "face_mask",
+        doshaType: "pitta",
+        imageUrl: "https://images.unsplash.com/photo-1596755389378-c31d21fd1273",
+        inStock: true,
+        isBestseller: false,
+        isNew: true,
+        rating: 4.7
+      },
+      {
+        name: "Neem Purifying Serum",
+        description: "Clarifying serum with neem and tea tree for acne-prone skin.",
+        price: 52,
+        category: "face_serum",
+        doshaType: "pitta",
+        imageUrl: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b",
+        inStock: true,
+        isBestseller: false,
+        isNew: true,
+        rating: 4.6
+      },
+      {
+        name: "Almond Night Cream",
+        description: "Rich night cream with sweet almond oil and shea butter.",
+        price: 48,
+        category: "face_moisturizer",
+        doshaType: "vata",
+        imageUrl: "https://images.unsplash.com/photo-1612532774276-cfa73aaa21b3",
+        inStock: true,
+        isBestseller: true,
+        isNew: false,
+        rating: 4.9
+      },
+      // Hair Products
+      {
+        name: "Hibiscus Hair Mask",
+        description: "Deep conditioning mask with hibiscus and coconut for dry hair.",
+        price: 38,
+        category: "hair_treatment",
+        doshaType: "vata",
+        imageUrl: "https://images.unsplash.com/photo-1526947425960-945c6e72858f",
+        inStock: true,
+        isBestseller: true,
+        isNew: false,
+        rating: 4.8
+      },
+      {
+        name: "Bhringraj Hair Oil",
+        description: "Traditional hair growth oil with bhringraj and amla.",
+        price: 42,
+        category: "hair_oil",
+        doshaType: "pitta",
+        imageUrl: "https://images.unsplash.com/photo-1585751119414-ef2636f8adf1",
+        inStock: true,
+        isBestseller: false,
+        isNew: true,
+        rating: 4.7
+      },
+      {
+        name: "Herbal Hair Cleanser",
+        description: "Gentle cleansing powder with shikakai and reetha.",
+        price: 28,
+        category: "hair_cleanser",
+        doshaType: "kapha",
+        imageUrl: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d",
+        inStock: true,
+        isBestseller: false,
+        isNew: true,
+        rating: 4.5
+      },
+      {
+        name: "Scalp Treatment Serum",
+        description: "Intensive scalp treatment with neem and rosemary.",
+        price: 46,
+        category: "hair_treatment",
+        doshaType: "pitta",
+        imageUrl: "https://images.unsplash.com/photo-1626285861696-9f0bf5a49c6d",
+        inStock: true,
+        isBestseller: true,
+        isNew: false,
+        rating: 4.6
+      },
+      // Body Products
+      {
+        name: "Lavender Body Oil",
+        description: "Calming body oil with lavender and sweet almond.",
+        price: 36,
+        category: "body_oil",
+        doshaType: "vata",
+        imageUrl: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b",
+        inStock: true,
+        isBestseller: true,
+        isNew: false,
+        rating: 4.8
+      },
+      {
+        name: "Sandalwood Body Butter",
+        description: "Rich body butter with sandalwood and shea.",
+        price: 42,
+        category: "body_butter",
+        doshaType: "vata",
+        imageUrl: "https://images.unsplash.com/photo-1612532774276-cfa73aaa21b3",
+        inStock: true,
+        isBestseller: false,
+        isNew: true,
+        rating: 4.7
+      },
+      {
+        name: "Neem Body Scrub",
+        description: "Purifying body scrub with neem and walnut shells.",
+        price: 32,
+        category: "body_scrub",
+        doshaType: "kapha",
+        imageUrl: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d",
+        inStock: true,
+        isBestseller: false,
+        isNew: true,
+        rating: 4.6
+      },
+      {
+        name: "Rose Body Lotion",
+        description: "Hydrating body lotion with rose and aloe vera.",
+        price: 38,
+        category: "body_lotion",
+        doshaType: "pitta",
+        imageUrl: "https://images.unsplash.com/photo-1626285861696-9f0bf5a49c6d",
+        inStock: true,
+        isBestseller: true,
+        isNew: false,
+        rating: 4.9
+      },
+      // Wellness Products
+      {
+        name: "Ashwagandha Tablets",
+        description: "Stress-relief supplements with organic ashwagandha.",
+        price: 48,
+        category: "wellness_supplement",
+        doshaType: "tri-dosha",
+        imageUrl: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843",
+        inStock: true,
+        isBestseller: true,
+        isNew: false,
+        rating: 4.9
+      },
+      {
+        name: "Triphala Powder",
+        description: "Digestive wellness powder with three fruits.",
+        price: 32,
+        category: "wellness_supplement",
+        doshaType: "tri-dosha",
+        imageUrl: "https://images.unsplash.com/photo-1597076545399-9dd44c050a17",
+        inStock: true,
+        isBestseller: false,
+        isNew: true,
+        rating: 4.7
+      },
+      {
+        name: "Chyawanprash",
+        description: "Traditional immunity boosting formula.",
+        price: 45,
+        category: "wellness_supplement",
+        doshaType: "tri-dosha",
+        imageUrl: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843",
+        inStock: true,
+        isBestseller: true,
+        isNew: false,
+        rating: 4.8
+      },
+      {
+        name: "Stress Relief Tea",
+        description: "Calming blend with holy basil and chamomile.",
+        price: 24,
+        category: "wellness_tea",
+        doshaType: "vata",
+        imageUrl: "https://images.unsplash.com/photo-1597076545399-9dd44c050a17",
+        inStock: true,
+        isBestseller: false,
+        isNew: true,
+        rating: 4.6
+      },
         // Cleansers
         {
           name: "Invigorating Clay Cleanser",
