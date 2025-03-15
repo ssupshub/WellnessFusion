@@ -7,33 +7,7 @@ import { z } from "zod";
 export async function registerRoutes(app: Express): Promise<Server> {
   const httpServer = createServer(app);
   
-  // Auth routes
-app.post("/api/auth/login", async (req, res) => {
-  try {
-    const { email, password } = req.body;
-    const user = await storage.getUserByEmail(email);
-    
-    if (!user || user.password !== password) {
-      return res.status(401).json({ message: "Invalid credentials" });
-    }
-    
-    // In production, use proper session management
-    res.json({
-      id: user.id,
-      name: user.name,
-      email: user.email,
-    });
-  } catch (error: any) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
-app.post("/api/auth/logout", (req, res) => {
-  // In production, handle proper session cleanup
-  res.json({ success: true });
-});
-
-// API routes
+  // API routes
   
   // Products
   app.get("/api/products", async (req, res) => {
