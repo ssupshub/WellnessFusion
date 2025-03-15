@@ -69,47 +69,47 @@ export default function DoshaQuiz() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="text-sm font-semibold text-[#34c759] uppercase tracking-wider">Personalized Wellness</span>
-            <h2 className="text-3xl md:text-4xl font-light mt-3 mb-4">
+            <span className="text-sm font-semibold text-[#833712] uppercase tracking-wider">Personalized Wellness</span>
+            <h2 className="text-3xl md:text-4xl font-light mt-3 mb-4 text-[#5D1B12]">
               Know Your <span className="font-medium">Dosha</span>
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-[#702912]/80 mb-6">
               According to Ayurveda, each person has a unique mix of three energies or doshas: Vata, Pitta, and Kapha. Understanding your dominant dosha is the first step to optimal wellness.
             </p>
             
             <div className="space-y-6 mb-8">
               <div className="flex items-start">
-                <div className="bg-[#34c759]/10 p-2 rounded-lg mr-4">
-                  <Sparkles className="h-6 w-6 text-[#34c759]" />
+                <div className="bg-[#833712]/10 p-2 rounded-lg mr-4">
+                  <Sparkles className="h-6 w-6 text-[#833712]" />
                 </div>
                 <div>
-                  <h3 className="font-medium mb-1">Personalized Recommendations</h3>
-                  <p className="text-sm text-gray-600">Get customized product suggestions based on your constitution type.</p>
+                  <h3 className="font-medium mb-1 text-[#5D1B12]">Personalized Recommendations</h3>
+                  <p className="text-sm text-[#702912]/80">Get customized product suggestions based on your constitution type.</p>
                 </div>
               </div>
               
               <div className="flex items-start">
-                <div className="bg-[#5ac8fa]/10 p-2 rounded-lg mr-4">
-                  <Zap className="h-6 w-6 text-[#5ac8fa]" />
+                <div className="bg-[#B28882]/20 p-2 rounded-lg mr-4">
+                  <Zap className="h-6 w-6 text-[#702912]" />
                 </div>
                 <div>
-                  <h3 className="font-medium mb-1">Lifestyle Guidance</h3>
-                  <p className="text-sm text-gray-600">Discover daily routines, diet tips, and practices to balance your doshas.</p>
+                  <h3 className="font-medium mb-1 text-[#5D1B12]">Lifestyle Guidance</h3>
+                  <p className="text-sm text-[#702912]/80">Discover daily routines, diet tips, and practices to balance your doshas.</p>
                 </div>
               </div>
               
               <div className="flex items-start">
-                <div className="bg-[#ff9500]/10 p-2 rounded-lg mr-4">
-                  <Shield className="h-6 w-6 text-[#ff9500]" />
+                <div className="bg-[#CFB3AD]/30 p-2 rounded-lg mr-4">
+                  <Shield className="h-6 w-6 text-[#833712]" />
                 </div>
                 <div>
-                  <h3 className="font-medium mb-1">Advanced Analysis</h3>
-                  <p className="text-sm text-gray-600">For deeper insights, connect with our NadiSense™ diagnostic technology.</p>
+                  <h3 className="font-medium mb-1 text-[#5D1B12]">Advanced Analysis</h3>
+                  <p className="text-sm text-[#702912]/80">For deeper insights, connect with our NadiSense™ diagnostic technology.</p>
                 </div>
               </div>
             </div>
             
-            <Button className="bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors h-auto">
+            <Button className="bg-[#5D1B12] text-white px-8 py-3 rounded-full font-medium hover:bg-[#833712] transition-colors h-auto">
               Take the Quiz
             </Button>
           </div>

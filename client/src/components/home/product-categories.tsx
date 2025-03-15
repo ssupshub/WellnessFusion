@@ -47,11 +47,11 @@ export default function ProductCategories() {
     <section id="categories" className="py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <span className="text-sm font-semibold text-[#34c759] uppercase tracking-wider">Collections</span>
-          <h2 className="text-3xl md:text-4xl font-light mt-3 mb-4">
+          <span className="text-sm font-semibold text-[#833712] uppercase tracking-wider">Collections</span>
+          <h2 className="text-3xl md:text-4xl font-light mt-3 mb-4 text-[#5D1B12]">
             Shop by <span className="font-medium">Category</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-[#702912] max-w-2xl mx-auto">
             Discover products curated specifically for your dosha type and wellness needs.
           </p>
         </div>
@@ -60,7 +60,7 @@ export default function ProductCategories() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {categories.map((category, index) => (
             <Link key={category.id} href={`/${category.slug}`}>
-              <motion.a 
+              <motion.div 
                 className="group relative overflow-hidden rounded-2xl aspect-square shadow-md transition-all duration-300 hover:shadow-xl cursor-pointer"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -71,13 +71,13 @@ export default function ProductCategories() {
                   alt={`${category.name} care products`} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-5">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#5D1B12]/70 to-transparent flex items-end p-5">
                   <div>
                     <h3 className="text-white text-xl font-medium mb-1">{category.name}</h3>
                     <p className="text-white/80 text-sm">{category.description}</p>
                   </div>
                 </div>
-              </motion.a>
+              </motion.div>
             </Link>
           ))}
         </div>

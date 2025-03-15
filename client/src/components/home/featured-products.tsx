@@ -135,7 +135,7 @@ export default function FeaturedProducts() {
         
         <div className="mt-12 text-center">
           <Link href="/face">
-            <Button className="bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors h-auto">
+            <Button className="bg-[#5D1B12] text-white px-8 py-3 rounded-full font-medium hover:bg-[#833712] transition-colors h-auto">
               View All Products
             </Button>
           </Link>
