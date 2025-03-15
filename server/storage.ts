@@ -1,9 +1,19 @@
-import { 
-  users, type User, type InsertUser,
-  products, type Product, type InsertProduct,
-  cartItems, type CartItem, type InsertCartItem,
-  practitioners, type Practitioner, type InsertPractitioner,
-  doshaQuizQuestions, type DoshaQuizQuestion, type InsertDoshaQuizQuestion
+import {
+  users,
+  type User,
+  type InsertUser,
+  products,
+  type Product,
+  type InsertProduct,
+  cartItems,
+  type CartItem,
+  type InsertCartItem,
+  practitioners,
+  type Practitioner,
+  type InsertPractitioner,
+  doshaQuizQuestions,
+  type DoshaQuizQuestion,
+  type InsertDoshaQuizQuestion,
 } from "@shared/schema";
 
 export interface IStorage {
@@ -23,7 +33,9 @@ export interface IStorage {
 
   // Cart methods
   getCartItems(userId: number): Promise<CartItem[]>;
-  getCartItemWithDetails(userId: number): Promise<(CartItem & { product: Product })[]>;
+  getCartItemWithDetails(
+    userId: number,
+  ): Promise<(CartItem & { product: Product })[]>;
   addToCart(cartItem: InsertCartItem): Promise<CartItem>;
   updateCartItem(id: number, quantity: number): Promise<CartItem | undefined>;
   removeFromCart(id: number): Promise<boolean>;
@@ -36,7 +48,9 @@ export interface IStorage {
   // Dosha quiz methods
   getAllDoshaQuizQuestions(): Promise<DoshaQuizQuestion[]>;
   getDoshaQuizQuestionById(id: number): Promise<DoshaQuizQuestion | undefined>;
-  createDoshaQuizQuestion(question: InsertDoshaQuizQuestion): Promise<DoshaQuizQuestion>;
+  createDoshaQuizQuestion(
+    question: InsertDoshaQuizQuestion,
+  ): Promise<DoshaQuizQuestion>;
 }
 
 export class MemStorage implements IStorage {
@@ -75,39 +89,44 @@ export class MemStorage implements IStorage {
       // Face Products
       {
         name: "Rose Petal Cleanser",
-        description: "Gentle cleanser infused with rose petals and aloe vera for sensitive skin.",
+        description:
+          "Gentle cleanser infused with rose petals and aloe vera for sensitive skin.",
         price: 34,
         category: "face_cleanser",
         doshaType: "pitta",
-        imageUrl: "https://images.unsplash.com/photo-1556228578-8d89313c5489",
+        imageUrl: "https://unsplash.com/photos/curology-softube-X1sIr53DhzA",
         inStock: true,
         isBestseller: true,
         isNew: false,
-        rating: 4.8
+        rating: 4.8,
       },
       {
         name: "Turmeric Brightening Mask",
-        description: "Illuminating face mask with turmeric and saffron for radiant skin.",
+        description:
+          "Illuminating face mask with turmeric and saffron for radiant skin.",
         price: 45,
         category: "face_mask",
         doshaType: "pitta",
-        imageUrl: "https://images.unsplash.com/photo-1596755389378-c31d21fd1273",
+        imageUrl:
+          "https://unsplash.com/photos/a-woman-with-a-white-towel-on-her-head-6meOsLju8wI",
         inStock: true,
         isBestseller: false,
         isNew: true,
-        rating: 4.7
+        rating: 4.7,
       },
       {
         name: "Neem Purifying Serum",
-        description: "Clarifying serum with neem and tea tree for acne-prone skin.",
+        description:
+          "Clarifying serum with neem and tea tree for acne-prone skin.",
         price: 52,
         category: "face_serum",
         doshaType: "pitta",
-        imageUrl: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b",
+        imageUrl:
+          "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b",
         inStock: true,
         isBestseller: false,
         isNew: true,
-        rating: 4.6
+        rating: 4.6,
       },
       {
         name: "Almond Night Cream",
@@ -115,24 +134,27 @@ export class MemStorage implements IStorage {
         price: 48,
         category: "face_moisturizer",
         doshaType: "vata",
-        imageUrl: "https://images.unsplash.com/photo-1612532774276-cfa73aaa21b3",
+        imageUrl:
+          "https://images.unsplash.com/photo-1612532774276-cfa73aaa21b3",
         inStock: true,
         isBestseller: true,
         isNew: false,
-        rating: 4.9
+        rating: 4.9,
       },
       // Hair Products
       {
         name: "Hibiscus Hair Mask",
-        description: "Deep conditioning mask with hibiscus and coconut for dry hair.",
+        description:
+          "Deep conditioning mask with hibiscus and coconut for dry hair.",
         price: 38,
         category: "hair_treatment",
         doshaType: "vata",
-        imageUrl: "https://images.unsplash.com/photo-1526947425960-945c6e72858f",
+        imageUrl:
+          "https://images.unsplash.com/photo-1526947425960-945c6e72858f",
         inStock: true,
         isBestseller: true,
         isNew: false,
-        rating: 4.8
+        rating: 4.8,
       },
       {
         name: "Bhringraj Hair Oil",
@@ -140,11 +162,12 @@ export class MemStorage implements IStorage {
         price: 42,
         category: "hair_oil",
         doshaType: "pitta",
-        imageUrl: "https://images.unsplash.com/photo-1585751119414-ef2636f8adf1",
+        imageUrl:
+          "https://images.unsplash.com/photo-1585751119414-ef2636f8adf1",
         inStock: true,
         isBestseller: false,
         isNew: true,
-        rating: 4.7
+        rating: 4.7,
       },
       {
         name: "Herbal Hair Cleanser",
@@ -152,11 +175,12 @@ export class MemStorage implements IStorage {
         price: 28,
         category: "hair_cleanser",
         doshaType: "kapha",
-        imageUrl: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d",
+        imageUrl:
+          "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d",
         inStock: true,
         isBestseller: false,
         isNew: true,
-        rating: 4.5
+        rating: 4.5,
       },
       {
         name: "Scalp Treatment Serum",
@@ -164,11 +188,12 @@ export class MemStorage implements IStorage {
         price: 46,
         category: "hair_treatment",
         doshaType: "pitta",
-        imageUrl: "https://images.unsplash.com/photo-1626285861696-9f0bf5a49c6d",
+        imageUrl:
+          "https://images.unsplash.com/photo-1626285861696-9f0bf5a49c6d",
         inStock: true,
         isBestseller: true,
         isNew: false,
-        rating: 4.6
+        rating: 4.6,
       },
       // Body Products
       {
@@ -177,11 +202,12 @@ export class MemStorage implements IStorage {
         price: 36,
         category: "body_oil",
         doshaType: "vata",
-        imageUrl: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b",
+        imageUrl:
+          "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b",
         inStock: true,
         isBestseller: true,
         isNew: false,
-        rating: 4.8
+        rating: 4.8,
       },
       {
         name: "Sandalwood Body Butter",
@@ -189,11 +215,12 @@ export class MemStorage implements IStorage {
         price: 42,
         category: "body_butter",
         doshaType: "vata",
-        imageUrl: "https://images.unsplash.com/photo-1612532774276-cfa73aaa21b3",
+        imageUrl:
+          "https://images.unsplash.com/photo-1612532774276-cfa73aaa21b3",
         inStock: true,
         isBestseller: false,
         isNew: true,
-        rating: 4.7
+        rating: 4.7,
       },
       {
         name: "Neem Body Scrub",
@@ -201,11 +228,12 @@ export class MemStorage implements IStorage {
         price: 32,
         category: "body_scrub",
         doshaType: "kapha",
-        imageUrl: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d",
+        imageUrl:
+          "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d",
         inStock: true,
         isBestseller: false,
         isNew: true,
-        rating: 4.6
+        rating: 4.6,
       },
       {
         name: "Rose Body Lotion",
@@ -213,11 +241,12 @@ export class MemStorage implements IStorage {
         price: 38,
         category: "body_lotion",
         doshaType: "pitta",
-        imageUrl: "https://images.unsplash.com/photo-1626285861696-9f0bf5a49c6d",
+        imageUrl:
+          "https://images.unsplash.com/photo-1626285861696-9f0bf5a49c6d",
         inStock: true,
         isBestseller: true,
         isNew: false,
-        rating: 4.9
+        rating: 4.9,
       },
       // Wellness Products
       {
@@ -226,11 +255,12 @@ export class MemStorage implements IStorage {
         price: 48,
         category: "wellness_supplement",
         doshaType: "tri-dosha",
-        imageUrl: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843",
+        imageUrl:
+          "https://images.unsplash.com/photo-1584017911766-d451b3d0e843",
         inStock: true,
         isBestseller: true,
         isNew: false,
-        rating: 4.9
+        rating: 4.9,
       },
       {
         name: "Triphala Powder",
@@ -238,11 +268,12 @@ export class MemStorage implements IStorage {
         price: 32,
         category: "wellness_supplement",
         doshaType: "tri-dosha",
-        imageUrl: "https://images.unsplash.com/photo-1597076545399-9dd44c050a17",
+        imageUrl:
+          "https://images.unsplash.com/photo-1597076545399-9dd44c050a17",
         inStock: true,
         isBestseller: false,
         isNew: true,
-        rating: 4.7
+        rating: 4.7,
       },
       {
         name: "Chyawanprash",
@@ -250,11 +281,12 @@ export class MemStorage implements IStorage {
         price: 45,
         category: "wellness_supplement",
         doshaType: "tri-dosha",
-        imageUrl: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843",
+        imageUrl:
+          "https://images.unsplash.com/photo-1584017911766-d451b3d0e843",
         inStock: true,
         isBestseller: true,
         isNew: false,
-        rating: 4.8
+        rating: 4.8,
       },
       {
         name: "Stress Relief Tea",
@@ -262,123 +294,141 @@ export class MemStorage implements IStorage {
         price: 24,
         category: "wellness_tea",
         doshaType: "vata",
-        imageUrl: "https://images.unsplash.com/photo-1597076545399-9dd44c050a17",
+        imageUrl:
+          "https://images.unsplash.com/photo-1597076545399-9dd44c050a17",
         inStock: true,
         isBestseller: false,
         isNew: true,
-        rating: 4.6
+        rating: 4.6,
       },
-        // Cleansers
-        {
-          name: "Invigorating Clay Cleanser",
-          description: "Energizing cleanser for Kapha skin with purifying clay and stimulating herbs.",
-          price: 38,
-          category: "face_cleanser",
-          doshaType: "kapha",
-          imageUrl: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b",
-          inStock: true,
-          isBestseller: false,
-          isNew: true,
-          rating: 5
-        },
-        {
-          name: "Warming Spice Cleanser",
-          description: "Stimulating cleanser with ginger and black pepper to invigorate Kapha skin.",
-          price: 42,
-          category: "face_cleanser",
-          doshaType: "kapha",
-          imageUrl: "https://images.unsplash.com/photo-1616004667892-d348f7349d39",
-          inStock: true,
-          isBestseller: false,
-          isNew: true,
-          rating: 4.7
-        },
-        // Moisturizers
-        {
-          name: "Lightweight Gel Moisturizer",
-          description: "Oil-free gel moisturizer perfect for Kapha skin types. Hydrates without heaviness.",
-          price: 45,
-          category: "face_moisturizer",
-          doshaType: "kapha",
-          imageUrl: "https://images.unsplash.com/photo-1617897903246-719242758050",
-          inStock: true,
-          isBestseller: false,
-          isNew: true,
-          rating: 4.5
-        },
-        {
-          name: "Balancing Day Cream",
-          description: "Light, non-greasy day cream with tulsi and neem for Kapha balance.",
-          price: 48,
-          category: "face_moisturizer",
-          doshaType: "kapha",
-          imageUrl: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be",
-          inStock: true,
-          isBestseller: true,
-          isNew: false,
-          rating: 4.9
-        },
-        // Serums
-        {
-          name: "Clarifying Herbal Serum",
-          description: "Potent blend of astringent herbs to balance and purify Kapha skin.",
-          price: 52,
-          category: "face_serum",
-          doshaType: "kapha",
-          imageUrl: "https://images.unsplash.com/photo-1594824476967-48c8b964273f",
-          inStock: true,
-          isBestseller: false,
-          isNew: true,
-          rating: 4.8
-        },
-        {
-          name: "Brightening Complex Serum",
-          description: "Concentrated serum with triphala and vitamin C to brighten dull Kapha skin.",
-          price: 58,
-          category: "face_serum",
-          doshaType: "kapha",
-          imageUrl: "https://images.unsplash.com/photo-1620756236308-65c3ef5d25f3",
-          inStock: true,
-          isBestseller: true,
-          isNew: true,
-          rating: 4.9
-        },
-        // Masks
-        {
-          name: "Detoxifying Clay Mask",
-          description: "Deep-cleansing mask with kaolin clay and warming spices for Kapha skin.",
-          price: 48,
-          category: "face_mask",
-          doshaType: "kapha",
-          imageUrl: "https://images.unsplash.com/photo-1608248544136-646675a43a38",
-          inStock: true,
-          isBestseller: true,
-          isNew: false,
-          rating: 4.9
-        },
-        {
-          name: "Exfoliating Enzyme Mask",
-          description: "Enzymatic mask with papaya and pineapple to gently exfoliate Kapha skin.",
-          price: 46,
-          category: "face_mask",
-          doshaType: "kapha",
-          imageUrl: "https://images.unsplash.com/photo-1614159102346-8c5239719ae3",
-          inStock: true,
-          isBestseller: false,
-          isNew: true,
-          rating: 4.6
-        },
+      // Cleansers
+      {
+        name: "Invigorating Clay Cleanser",
+        description:
+          "Energizing cleanser for Kapha skin with purifying clay and stimulating herbs.",
+        price: 38,
+        category: "face_cleanser",
+        doshaType: "kapha",
+        imageUrl:
+          "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b",
+        inStock: true,
+        isBestseller: false,
+        isNew: true,
+        rating: 5,
+      },
+      {
+        name: "Warming Spice Cleanser",
+        description:
+          "Stimulating cleanser with ginger and black pepper to invigorate Kapha skin.",
+        price: 42,
+        category: "face_cleanser",
+        doshaType: "kapha",
+        imageUrl:
+          "https://images.unsplash.com/photo-1616004667892-d348f7349d39",
+        inStock: true,
+        isBestseller: false,
+        isNew: true,
+        rating: 4.7,
+      },
+      // Moisturizers
+      {
+        name: "Lightweight Gel Moisturizer",
+        description:
+          "Oil-free gel moisturizer perfect for Kapha skin types. Hydrates without heaviness.",
+        price: 45,
+        category: "face_moisturizer",
+        doshaType: "kapha",
+        imageUrl:
+          "https://images.unsplash.com/photo-1617897903246-719242758050",
+        inStock: true,
+        isBestseller: false,
+        isNew: true,
+        rating: 4.5,
+      },
+      {
+        name: "Balancing Day Cream",
+        description:
+          "Light, non-greasy day cream with tulsi and neem for Kapha balance.",
+        price: 48,
+        category: "face_moisturizer",
+        doshaType: "kapha",
+        imageUrl:
+          "https://images.unsplash.com/photo-1620916566398-39f1143ab7be",
+        inStock: true,
+        isBestseller: true,
+        isNew: false,
+        rating: 4.9,
+      },
+      // Serums
+      {
+        name: "Clarifying Herbal Serum",
+        description:
+          "Potent blend of astringent herbs to balance and purify Kapha skin.",
+        price: 52,
+        category: "face_serum",
+        doshaType: "kapha",
+        imageUrl:
+          "https://images.unsplash.com/photo-1594824476967-48c8b964273f",
+        inStock: true,
+        isBestseller: false,
+        isNew: true,
+        rating: 4.8,
+      },
+      {
+        name: "Brightening Complex Serum",
+        description:
+          "Concentrated serum with triphala and vitamin C to brighten dull Kapha skin.",
+        price: 58,
+        category: "face_serum",
+        doshaType: "kapha",
+        imageUrl:
+          "https://images.unsplash.com/photo-1620756236308-65c3ef5d25f3",
+        inStock: true,
+        isBestseller: true,
+        isNew: true,
+        rating: 4.9,
+      },
+      // Masks
+      {
+        name: "Detoxifying Clay Mask",
+        description:
+          "Deep-cleansing mask with kaolin clay and warming spices for Kapha skin.",
+        price: 48,
+        category: "face_mask",
+        doshaType: "kapha",
+        imageUrl:
+          "https://images.unsplash.com/photo-1608248544136-646675a43a38",
+        inStock: true,
+        isBestseller: true,
+        isNew: false,
+        rating: 4.9,
+      },
+      {
+        name: "Exfoliating Enzyme Mask",
+        description:
+          "Enzymatic mask with papaya and pineapple to gently exfoliate Kapha skin.",
+        price: 46,
+        category: "face_mask",
+        doshaType: "kapha",
+        imageUrl:
+          "https://images.unsplash.com/photo-1614159102346-8c5239719ae3",
+        inStock: true,
+        isBestseller: false,
+        isNew: true,
+        rating: 4.6,
+      },
       {
         name: "Balancing Facial Cleansing Oil",
         description: "Perfect for Pitta dosha. Calms and purifies.",
         price: 42,
         category: "face",
         doshaType: "pitta",
-        imageUrl: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b",
+        imageUrl:
+          "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b",
         inStock: true,
         isBestseller: true,
         isNew: false,
-        rating: 5
+        rating: 5,
       },
       {
         name: "Nourishing Hair Oil Elixir",
@@ -386,11 +436,12 @@ export class MemStorage implements IStorage {
         price: 36,
         category: "hair",
         doshaType: "vata",
-        imageUrl: "https://images.unsplash.com/photo-1617897903246-719242758050",
+        imageUrl:
+          "https://images.unsplash.com/photo-1617897903246-719242758050",
         inStock: true,
         isBestseller: false,
         isNew: true,
-        rating: 4
+        rating: 4,
       },
       {
         name: "Grounding Body Butter",
@@ -398,11 +449,12 @@ export class MemStorage implements IStorage {
         price: 48,
         category: "body",
         doshaType: "kapha",
-        imageUrl: "https://images.unsplash.com/photo-1608248544136-646675a43a38",
+        imageUrl:
+          "https://images.unsplash.com/photo-1608248544136-646675a43a38",
         inStock: true,
         isBestseller: false,
         isNew: false,
-        rating: 5
+        rating: 5,
       },
       {
         name: "Tri-Dosha Balance Supplements",
@@ -410,12 +462,13 @@ export class MemStorage implements IStorage {
         price: 54,
         category: "wellness",
         doshaType: "tri-dosha",
-        imageUrl: "https://images.unsplash.com/photo-1594824476967-48c8b964273f",
+        imageUrl:
+          "https://images.unsplash.com/photo-1594824476967-48c8b964273f",
         inStock: true,
         isBestseller: false,
         isNew: false,
-        rating: 5
-      }
+        rating: 5,
+      },
     ];
 
     // Add more products for each category
@@ -428,27 +481,32 @@ export class MemStorage implements IStorage {
       {
         name: "Dr. Amrita Patel",
         title: "Ayurvedic Physician",
-        description: "Specializes in women's health, skin conditions, and stress management through Ayurvedic principles.",
+        description:
+          "Specializes in women's health, skin conditions, and stress management through Ayurvedic principles.",
         imageUrl: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2",
         price: 120,
-        duration: 60
+        duration: 60,
       },
       {
         name: "Dr. Raj Sharma",
         title: "Holistic Nutritionist",
-        description: "Expert in digestive disorders, metabolic health, and dosha-specific dietary protocols.",
-        imageUrl: "https://images.unsplash.com/photo-1622253692010-333f2da6031d",
+        description:
+          "Expert in digestive disorders, metabolic health, and dosha-specific dietary protocols.",
+        imageUrl:
+          "https://images.unsplash.com/photo-1622253692010-333f2da6031d",
         price: 95,
-        duration: 45
+        duration: 45,
       },
       {
         name: "Maya Johnson",
         title: "Wellness Coach",
-        description: "Focuses on lifestyle optimization, stress reduction, and mind-body practices for balance.",
-        imageUrl: "https://images.unsplash.com/photo-1594824476967-48c8b964273f",
+        description:
+          "Focuses on lifestyle optimization, stress reduction, and mind-body practices for balance.",
+        imageUrl:
+          "https://images.unsplash.com/photo-1594824476967-48c8b964273f",
         price: 85,
-        duration: 60
-      }
+        duration: 60,
+      },
     ];
 
     for (const practitioner of practitionerData) {
@@ -461,20 +519,20 @@ export class MemStorage implements IStorage {
         question: "My body frame is generally:",
         vataOption: "Slim, I find it difficult to gain weight",
         pittaOption: "Medium, with good muscle tone",
-        kaphaOption: "Larger, with a tendency to gain weight"
+        kaphaOption: "Larger, with a tendency to gain weight",
       },
       {
         question: "My skin tends to be:",
         vataOption: "Dry, rough, or thin",
         pittaOption: "Warm, reddish, sensitive",
-        kaphaOption: "Thick, oily, cool"
+        kaphaOption: "Thick, oily, cool",
       },
       {
         question: "When stressed, I tend to:",
         vataOption: "Feel anxious or worried",
         pittaOption: "Become irritable or frustrated",
-        kaphaOption: "Withdraw or become stubborn"
-      }
+        kaphaOption: "Withdraw or become stubborn",
+      },
     ];
 
     for (const question of quizQuestionsData) {
@@ -511,25 +569,26 @@ export class MemStorage implements IStorage {
 
   async getProductsByCategory(category: string): Promise<Product[]> {
     return Array.from(this.products.values()).filter(
-      (product) => product.category === category
+      (product) => product.category === category,
     );
   }
 
   async getProductsByDoshaType(doshaType: string): Promise<Product[]> {
     return Array.from(this.products.values()).filter(
-      (product) => product.doshaType === doshaType || product.doshaType === 'tri-dosha'
+      (product) =>
+        product.doshaType === doshaType || product.doshaType === "tri-dosha",
     );
   }
 
   async getBestsellerProducts(): Promise<Product[]> {
     return Array.from(this.products.values()).filter(
-      (product) => product.isBestseller
+      (product) => product.isBestseller,
     );
   }
 
   async getNewProducts(): Promise<Product[]> {
     return Array.from(this.products.values()).filter(
-      (product) => product.isNew
+      (product) => product.isNew,
     );
   }
 
@@ -543,13 +602,15 @@ export class MemStorage implements IStorage {
   // Cart methods
   async getCartItems(userId: number): Promise<CartItem[]> {
     return Array.from(this.cartItems.values()).filter(
-      (item) => item.userId === userId
+      (item) => item.userId === userId,
     );
   }
 
-  async getCartItemWithDetails(userId: number): Promise<(CartItem & { product: Product })[]> {
+  async getCartItemWithDetails(
+    userId: number,
+  ): Promise<(CartItem & { product: Product })[]> {
     const items = await this.getCartItems(userId);
-    return items.map(item => {
+    return items.map((item) => {
       const product = this.products.get(item.productId);
       if (!product) {
         throw new Error(`Product with id ${item.productId} not found`);
@@ -561,12 +622,17 @@ export class MemStorage implements IStorage {
   async addToCart(insertCartItem: InsertCartItem): Promise<CartItem> {
     // Check if the item is already in the cart
     const existingItem = Array.from(this.cartItems.values()).find(
-      (item) => item.userId === insertCartItem.userId && item.productId === insertCartItem.productId
+      (item) =>
+        item.userId === insertCartItem.userId &&
+        item.productId === insertCartItem.productId,
     );
 
     if (existingItem) {
       // Update quantity
-      return this.updateCartItem(existingItem.id, existingItem.quantity + insertCartItem.quantity) as Promise<CartItem>;
+      return this.updateCartItem(
+        existingItem.id,
+        existingItem.quantity + insertCartItem.quantity,
+      ) as Promise<CartItem>;
     }
 
     // Add new item
@@ -576,7 +642,10 @@ export class MemStorage implements IStorage {
     return cartItem;
   }
 
-  async updateCartItem(id: number, quantity: number): Promise<CartItem | undefined> {
+  async updateCartItem(
+    id: number,
+    quantity: number,
+  ): Promise<CartItem | undefined> {
     const cartItem = this.cartItems.get(id);
     if (!cartItem) return undefined;
 
@@ -598,7 +667,9 @@ export class MemStorage implements IStorage {
     return this.practitioners.get(id);
   }
 
-  async createPractitioner(insertPractitioner: InsertPractitioner): Promise<Practitioner> {
+  async createPractitioner(
+    insertPractitioner: InsertPractitioner,
+  ): Promise<Practitioner> {
     const id = this.practitionerId++;
     const practitioner: Practitioner = { ...insertPractitioner, id };
     this.practitioners.set(id, practitioner);
@@ -610,11 +681,15 @@ export class MemStorage implements IStorage {
     return Array.from(this.doshaQuizQuestions.values());
   }
 
-  async getDoshaQuizQuestionById(id: number): Promise<DoshaQuizQuestion | undefined> {
+  async getDoshaQuizQuestionById(
+    id: number,
+  ): Promise<DoshaQuizQuestion | undefined> {
     return this.doshaQuizQuestions.get(id);
   }
 
-  async createDoshaQuizQuestion(insertQuestion: InsertDoshaQuizQuestion): Promise<DoshaQuizQuestion> {
+  async createDoshaQuizQuestion(
+    insertQuestion: InsertDoshaQuizQuestion,
+  ): Promise<DoshaQuizQuestion> {
     const id = this.questionId++;
     const question: DoshaQuizQuestion = { ...insertQuestion, id };
     this.doshaQuizQuestions.set(id, question);
