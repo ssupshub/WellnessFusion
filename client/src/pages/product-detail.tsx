@@ -93,21 +93,21 @@ export default function ProductDetail() {
     {
       id: 1,
       name: "Calming Face Mist",
-      price: 28,
+      price: 425,
       category: "face",
       imageUrl: "https://images.unsplash.com/photo-1556227834-09f1de7a7d14",
     },
     {
       id: 2,
       name: "Soothing Aloe Gel",
-      price: 24,
+      price: 499,
       category: "face",
       imageUrl: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b",
     },
     {
       id: 3,
       name: "Hydrating Serum",
-      price: 38,
+      price: 299,
       category: "face",
       imageUrl: "https://images.unsplash.com/photo-1556228578-8c89e6adf883",
     }

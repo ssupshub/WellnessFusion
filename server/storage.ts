@@ -94,7 +94,7 @@ export class MemStorage implements IStorage {
         price: 34,
         category: "face_cleanser",
         doshaType: "pitta",
-        imageUrl: "https://images.unsplash.com/photo-1556227702-d1e4e7b5c232",
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqcP1qQaWv_gX9axOz3hp_mnhW5Vx2EAb8jw&s",
         inStock: true,
         isBestseller: true,
         isNew: false,
@@ -108,7 +108,7 @@ export class MemStorage implements IStorage {
         category: "face_mask",
         doshaType: "pitta",
         imageUrl:
-          "https://images.unsplash.com/photo-1570554886121-44a0d98d7065",
+          "https://m.media-amazon.com/images/I/61zi0mzBrnL._AC_UF1000,1000_QL80_.jpg",
         inStock: true,
         isBestseller: false,
         isNew: true,
@@ -122,7 +122,7 @@ export class MemStorage implements IStorage {
         category: "face_serum",
         doshaType: "pitta",
         imageUrl:
-          "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b",
+          "https://m.media-amazon.com/images/I/61zi0mzBrnL._AC_UF1000,1000_QL80_.jpg",
         inStock: true,
         isBestseller: false,
         isNew: true,
@@ -135,7 +135,7 @@ export class MemStorage implements IStorage {
         category: "face_moisturizer",
         doshaType: "vata",
         imageUrl:
-          "https://images.unsplash.com/photo-1612532774276-cfa73aaa21b3",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqcP1qQaWv_gX9axOz3hp_mnhW5Vx2EAb8jw&s",
         inStock: true,
         isBestseller: true,
         isNew: false,
@@ -150,7 +150,7 @@ export class MemStorage implements IStorage {
         category: "hair_treatment",
         doshaType: "vata",
         imageUrl:
-          "https://images.unsplash.com/photo-1526947425960-945c6e72858f",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqcP1qQaWv_gX9axOz3hp_mnhW5Vx2EAb8jw&s",
         inStock: true,
         isBestseller: true,
         isNew: false,
@@ -163,7 +163,7 @@ export class MemStorage implements IStorage {
         category: "hair_oil",
         doshaType: "pitta",
         imageUrl:
-          "https://images.unsplash.com/photo-1585751119414-ef2636f8adf1",
+          "https://m.media-amazon.com/images/I/61zi0mzBrnL._AC_UF1000,1000_QL80_.jpg",
         inStock: true,
         isBestseller: false,
         isNew: true,
@@ -176,7 +176,7 @@ export class MemStorage implements IStorage {
         category: "hair_cleanser",
         doshaType: "kapha",
         imageUrl:
-          "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqcP1qQaWv_gX9axOz3hp_mnhW5Vx2EAb8jw&s",
         inStock: true,
         isBestseller: false,
         isNew: true,
@@ -189,7 +189,7 @@ export class MemStorage implements IStorage {
         category: "hair_treatment",
         doshaType: "pitta",
         imageUrl:
-          "https://images.unsplash.com/photo-1626285861696-9f0bf5a49c6d",
+          "https://m.media-amazon.com/images/I/61zi0mzBrnL._AC_UF1000,1000_QL80_.jpg",
         inStock: true,
         isBestseller: true,
         isNew: false,
@@ -203,7 +203,7 @@ export class MemStorage implements IStorage {
         category: "body_oil",
         doshaType: "vata",
         imageUrl:
-          "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqcP1qQaWv_gX9axOz3hp_mnhW5Vx2EAb8jw&s",
         inStock: true,
         isBestseller: true,
         isNew: false,
@@ -216,7 +216,7 @@ export class MemStorage implements IStorage {
         category: "body_butter",
         doshaType: "vata",
         imageUrl:
-          "https://images.unsplash.com/photo-1612532774276-cfa73aaa21b3",
+          "https://m.media-amazon.com/images/I/61zi0mzBrnL._AC_UF1000,1000_QL80_.jpg",
         inStock: true,
         isBestseller: false,
         isNew: true,

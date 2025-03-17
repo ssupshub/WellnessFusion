@@ -94,7 +94,7 @@ export default function HeroSection() {
             {/* Main large image */}
             <div className="col-span-8 row-span-10 relative rounded-3xl overflow-hidden shadow-xl">
               <img 
-                src="https://images.unsplash.com/photo-1611074818734-18de3c982691?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                src="https://images.unsplash.com/photo-1538998073820-4dfa76300194?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                 alt="Ayurvedic products and herbs" 
                 className="w-full h-full object-cover"
               />
@@ -108,7 +108,7 @@ export default function HeroSection() {
             {/* Top smaller image */}
             <div className="col-span-4 row-span-5 relative rounded-3xl overflow-hidden shadow-lg">
               <img 
-                src="https://images.unsplash.com/photo-1532457573542-59fe6c59dd32?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                src="https://plus.unsplash.com/premium_photo-1661756453437-0dc2df3b3a19?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                 alt="Woman during ayurvedic treatment" 
                 className="w-full h-full object-cover"
               />
@@ -120,7 +120,7 @@ export default function HeroSection() {
             {/* Bottom smaller image */}
             <div className="col-span-4 row-span-5 relative rounded-3xl overflow-hidden shadow-lg">
               <img 
-                src="https://images.unsplash.com/photo-1586911424489-0b2497cc7652?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                src="https://images.unsplash.com/photo-1532091710512-26fd3b2dcf16?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                 alt="Ayurvedic herbs and ingredients" 
                 className="w-full h-full object-cover"
               />

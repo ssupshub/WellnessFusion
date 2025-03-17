@@ -17,14 +17,14 @@ export default function ProductCategories() {
       id: "1",
       name: "Face",
       description: "Natural skincare for radiance",
-      imageUrl: "https://images.unsplash.com/photo-1631730359585-38a4935811d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1602312771175-0a4f1f0f6214?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       slug: "face"
     },
     {
       id: "2",
       name: "Hair",
       description: "Strengthen from root to tip",
-      imageUrl: "https://images.unsplash.com/photo-1586335963805-f5cabc5d3cb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1643123158622-cd757dce7cfa?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       slug: "hair"
     },
     {

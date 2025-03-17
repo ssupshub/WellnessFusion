@@ -207,7 +207,7 @@ export default function Header() {
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <span className="text-xl font-semibold tracking-tight text-[#5D1B12]">Ayurveda</span>
+          <span className="text-xl font-semibold tracking-tight text-[#5D1B12]">T.A.C</span>
         </Link>
         
         {/* Desktop Navigation */}
