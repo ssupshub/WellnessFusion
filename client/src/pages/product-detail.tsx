@@ -5,13 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Rating } from "@/components/ui/star";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { 
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+
 import { 
   ChevronRight, 
   Minus, 
@@ -24,7 +18,7 @@ import {
   Wind,
   Flame
 } from "lucide-react";
-import { apiRequest, queryClient } from "@/lib/queryClient";
+import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
@@ -152,12 +146,10 @@ export default function ProductDetail() {
       <div className="container mx-auto px-4">
         {/* Breadcrumbs */}
         <div className="flex items-center text-sm text-gray-500 mb-8">
-          <Link href="/">
-            <a className="hover:text-gray-900">Home</a>
-          </Link>
+          <Link href="/" className="hover:text-gray-900">Home</Link>
           <ChevronRight className="h-4 w-4 mx-2" />
-          <Link href={`/${product.category}`}>
-            <a className="hover:text-gray-900">{product.category.charAt(0).toUpperCase() + product.category.slice(1)}</a>
+          <Link href={`/${product.category}`} className="hover:text-gray-900">
+            {product.category.charAt(0).toUpperCase() + product.category.slice(1)}
           </Link>
           <ChevronRight className="h-4 w-4 mx-2" />
           <span className="text-gray-900">{product.name}</span>
@@ -191,7 +183,7 @@ export default function ProductDetail() {
             <div className="mb-6">
               <h1 className="text-3xl font-medium mb-2">{product.name}</h1>
               <div className="flex items-center space-x-4 mb-4">
-                <Rating rating={product.rating} />
+                <Rating rating={product.rating ?? 0} />
                 <span className="text-gray-500">(32 reviews)</span>
               </div>
               <p className="text-2xl font-semibold mb-4">${product.price}</p>

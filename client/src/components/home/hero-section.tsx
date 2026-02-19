@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Sparkles, ArrowRight, Leaf, Star, Badge, Smile } from "lucide-react";
+import { Sparkles, ArrowRight, Leaf, Star, Smile } from "lucide-react";
 
 export default function HeroSection() {
   return (
@@ -123,6 +123,7 @@ export default function HeroSection() {
                 src="https://images.unsplash.com/photo-1532091710512-26fd3b2dcf16?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                 alt="Ayurvedic herbs and ingredients" 
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#833712]/60 to-transparent flex items-end p-4">
                 <h4 className="text-white text-sm font-medium">Herbal Remedies</h4>

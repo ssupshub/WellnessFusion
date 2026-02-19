@@ -178,9 +178,7 @@ export default function Cart() {
     <div className="pt-28 pb-16">
       <div className="container mx-auto px-4">
         <div className="flex items-center text-sm text-gray-500 mb-6">
-          <Link href="/">
-            <a className="hover:text-gray-900">Home</a>
-          </Link>
+          <Link href="/" className="hover:text-gray-900">Home</Link>
           <ChevronRight className="h-4 w-4 mx-2" />
           <span className="text-gray-900">Cart</span>
         </div>
