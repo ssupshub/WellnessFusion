@@ -1,97 +1,86 @@
+# WellnessFusion 🍃
 
----
+A modern holistic wellness ecosystem built with React (Vite), Express, Tailwind CSS, and Drizzle ORM.
 
-## 🚀 Project Setup  
+## 🚀 Project Setup
 
-This repository contains a project that requires **Node.js 16** to run. Follow the steps below to set up and start the project.  
+This repository requires **Node.js 18+** to run correctly.
 
-### 📥 Installation  
+### 📥 Local Installation
 
-1. **Install Node.js 16** (Debian/Ubuntu-based systems):  
-   ```sh
-   curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-   sudo apt install -y nodejs
-   ```  
+1. **Verify installation:**
 
-2. **Verify installation:**  
    ```sh
    node -v
    npm -v
-   ```  
+   ```
 
-3. **Install dependencies:**  
+2. **Install dependencies:**
    ```sh
    npm install
-   ```  
+   ```
 
-### 🚀 Run the Project  
+### �️ Development & Build Config
 
-To start the development server, run:  
+To start the development server with Vite HMR:
+
 ```sh
 npm run dev
-```  
+```
+
+To build the client and statically output to `dist`:
+
+```sh
+npm run build
+```
 
 ---
 
-**note:**
-If it not wokring, use 18 version of node and npm
+## ☁️ Vercel Deployment
 
+This project is configured out-of-the-box for **Vercel** with a split Serverless setup:
 
+- The React SPA is built by Vite into the `dist` directory.
+- The backend API is routed through `api/index.ts` natively using `@vercel/node`.
 
+### Deploying to Vercel
 
+1. Import the project in your Vercel dashboard.
+2. Vercel will automatically detect **Vite** as the frontend framework.
+3. The serverless functions configuration is pre-configured in `vercel.json` to seamlessly route `/api/(.*)` requests to the Express backend while falling back all frontend routes to `/dist/index.html`.
 
+> **⚠️ CRITICAL WARNING FOR VERCEL DEPLOYMENT:**
+> Currently, the API uses **In-Memory Storage (`server/storage.ts`)**. Because Vercel Serverless Functions spin up and down on demand, **all data (users, cart items, products) will be reset frequently.**
+>
+> To run this in production securely, you **must**:
+>
+> 1. Implement the Drizzle ORM PostgreSQL connection (`server/db.ts`).
+> 2. Add a `DATABASE_URL` environment variable in your Vercel settings pointing to a remote PostgreSQL provider (e.g. Neon).
+> 3. Implement hashing for user passwords.
 
-### Optimized Commands
+---
+
+## 🛠️ Advanced Linux VPS Setup (Optional)
+
+If deploying to a traditional Ubuntu/Debian VPS (like AWS EC2 or DigitalOcean Droplet) using PM2 and Nginx instead of Vercel:
 
 ```bash
-# 1. Update and upgrade the system
+# 1. Update and install Node 18
 sudo apt update && sudo apt upgrade -y
-
-# 2. Install Apache2 and start it (no need for 'clear' commands in between)
-sudo apt install apache2 -y
-sudo systemctl start apache2
-sudo systemctl enable apache2
-
-# 3. Install Node.js (version 16)
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt install -y nodejs
-node -v
-npm -v
 
-# 4. Clone the WellnessFusion repository
+# 2. Clone and install
 git clone https://github.com/ssupshub/WellnessFusion.git
 cd WellnessFusion/
-
-# 5. Install dependencies and start the development environment
 npm install
-npm run dev
+npm run build
 
-# 6. Install NVM and Node.js version 18
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
-source ~/.bashrc
-nvm install 18
-nvm use 18
-node -v
-
-# 7. Install PM2 and run the server
+# 3. Setup PM2 for the backend
 npm install -g pm2
-pm2 start tsx -- server/index.ts --name rest-express
+pm2 start "npm run start" --name wellness-fusion
 
-# 8. Install and configure Nginx
+# 4. Configure Nginx
 sudo apt install nginx -y
-sudo systemctl start nginx
-sudo systemctl stop apache2
-sudo systemctl enable nginx
-
-# 9. Configure Nginx
-sudo nano /etc/nginx/sites-available/rest-express
-sudo ln -s /etc/nginx/sites-available/rest-express /etc/nginx/sites-enabled/
-sudo nginx -t
-sudo systemctl reload nginx
-
-# 10. Manage PM2 and Nginx for changes
-pm2 reload tsx
-systemctl reload nginx
+# Link your Nginx site configuration to point to localhost:5000
 ```
-
-
