@@ -41,13 +41,10 @@ app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   res.status(status).json({ message });
 });
 
-// Register all API routes and export the app as a Vercel serverless handler
-let handler: any;
+// Initialize routes asynchronously before exporting
+(async () => {
+  await registerRoutes(app);
+})();
 
-export default async function (req: Request, res: Response) {
-  if (!handler) {
-    await registerRoutes(app);
-    handler = app;
-  }
-  return handler(req, res);
-}
+// Export the app as a Vercel serverless handler
+export default app;
